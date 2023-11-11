@@ -77,6 +77,36 @@
     margin: 0 .1rem;
 }
 
+.boxName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.titleName{
+    margin: .5rem 0;
+}
+
+.inputName, .inputName:focus{
+    border: none;
+    padding: .5rem;
+    border-radius: .2rem;
+    box-shadow: none;
+    outline: none;
+}
+
+.btnToPlay{
+    margin-top: 1rem;
+    width: 100%;
+    cursor: pointer;
+    padding: .5rem 0;
+}
+
+.titlePlayBtn{
+    font-size: 1rem;
+}
+
 @media(max-width:592px){
     .boxPlayers{
         margin: 0;
