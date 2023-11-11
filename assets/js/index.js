@@ -13,11 +13,12 @@ let playGame = ()=>{
         }
 }
 
+let numberPlayers = 0;
 
 let players = (number) =>{
     containerFluid.innerHTML = ''; // Limpando todo o HTML
     let boxNamesPlayers = document.createElement('div'); // Criando div
-    boxNamesPlayers.classList.add('boxNamesPlayeres') // Adicionando nome da classe
+    boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
 
     for(let i = 1; i <= number; i++){ // Criar box de acordo com o numero de jogadores
         let boxName = document.createElement('div');
@@ -29,6 +30,8 @@ let players = (number) =>{
 
         let inputName = document.createElement('input');
         inputName.classList.add('inputName');
+        inputName.setAttribute('placeholder', `Nome do jogador ${i}`);
+        inputName.setAttribute('type', 'text'); // Adicionando atributo
 
         boxNamesPlayers.appendChild(boxName); // Adicionando a div de boxNamesPlayers
         boxName.appendChild(titleName); // Adicionando title
@@ -38,9 +41,19 @@ let players = (number) =>{
     let buttonPlay = document.createElement('button');
     buttonPlay.classList.add('btnToPlay');
     buttonPlay.innerHTML = "<h3 class='titlePlayBtn'>Jogar</h3>";
+    buttonPlay.setAttribute('onclick', 'setAvatar()');
+
+    let buttonReturn = document.createElement('button');
+    buttonReturn.classList.add('btnReturn');
+    buttonReturn.innerHTML = "<h3>Voltar</h3>"
+    buttonReturn.setAttribute('onclick', 'playGame()');
 
     containerFluid.appendChild(boxNamesPlayers) // Adicionar div no conteudo
-
     containerFluid.appendChild(buttonPlay);
+    containerFluid.appendChild(buttonReturn);
 
+    numberPlayers = number; // Setar jogadores
+}
+let setAvatar = ()=>{
+    console.log(numberPlayers)
 }

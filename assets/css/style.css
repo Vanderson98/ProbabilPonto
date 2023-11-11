@@ -12,9 +12,8 @@
 }
 
 .containerFluid{
-    position: absolute;
-    /* top: 10%; */
-    left: 35%;
+    width: 30rem ;
+    margin: 0 auto;
     transition: 2s;
     padding: 1.5rem;
     color:#F6f6f6;
@@ -32,6 +31,7 @@
     margin-top: 1rem;
     font-size: 1.2rem;
     padding: .5rem 2rem;
+    cursor: pointer;
 }
 
 .boxPlayers{
@@ -60,6 +60,14 @@
     transition: 250ms;
 }
 
+.boxPlayers{
+    margin: 0;
+}
+
+.boxPlayer{
+    margin-top: 1rem;
+}
+
 .playerTitle{
     font-size: 1rem;
     margin-right: .5rem;
@@ -75,6 +83,11 @@
 
 .fa-user{
     margin: 0 .1rem;
+}
+
+.boxNamesPlayers{
+    width: 75% !important;
+    margin: 0 auto;
 }
 
 .boxName{
@@ -94,13 +107,18 @@
     border-radius: .2rem;
     box-shadow: none;
     outline: none;
+    width: 50%;
 }
 
-.btnToPlay{
-    margin-top: 1rem;
-    width: 100%;
+.btnToPlay, .btnReturn{
+    margin-top: 1.5rem;
+    width: 50%;
     cursor: pointer;
     padding: .5rem 0;
+}
+
+.btnReturn{
+    margin-top: 1.2rem;
 }
 
 .titlePlayBtn{
@@ -108,14 +126,10 @@
 }
 
 @media(max-width:592px){
-    .boxPlayers{
-        margin: 0;
-    }
-
     .boxPlayer{
-        margin-top: 1rem;
         flex-direction: column;
     }
+
     .icons{
         margin-top: .25rem;
     }
