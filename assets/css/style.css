@@ -132,6 +132,16 @@
     color: #fd0910;
 }
 
+.titleAvatar{
+    font-size: 1.6rem;
+}
+
+.warningComment{
+    color:rgb(236, 193, 0);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 @media(max-width:592px){
     .boxPlayer{
         flex-direction: column;

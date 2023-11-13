@@ -74,10 +74,10 @@ let setAvatar = ()=>{
     
     let titleError = document.createElement('h3');
     titleError.classList.add('errorTitle');
-    for(let i = 1; i <= numberPlayers; i++){ // Verificar se foram digitado corretamente
+    for(let i = 1; i <= numberPlayers; i++){
         let namePlayer = (document.querySelector(`#namePlayer${i}`).value)
         namePlayers.push(namePlayer.toLowerCase());
-        if(namePlayer == null || namePlayer == undefined || namePlayer == ''){
+        if(namePlayer == null || namePlayer == undefined || namePlayer == ''){ // Verificar se foram digitado corretamente
             userNoDetected = true;
             titleError.innerHTML = 'Digite os nomes corretamente e <br>tente novamente!';
             boxNamesPlayers.appendChild(titleError);
@@ -100,6 +100,20 @@ let setAvatar = ()=>{
             titleError.remove() // Remover elemento do html depois de 3 segundos
         }, 3000)
     }else{
-        console.log('Tudo certo');
+        emptyContent();
+        let titleAvatar = document.createElement('h3');
+        titleAvatar.classList.add('titleAvatar');
+        titleAvatar.innerHTML = "Selecione o seu avatar!"
+
+        let warningComment = document.createElement('p');
+        warningComment.classList.add('warningComment');
+        warningComment.innerHTML = 'Estamos trabalhando para atualizar essa parte!';
+
+        containerFluid.appendChild(titleAvatar);
+        containerFluid.appendChild(warningComment);
+
+        for(let i = 1; i <= numberPlayers; i++){
+            console.log(`Jogador ${i}`);
+        }
     }
 } 
