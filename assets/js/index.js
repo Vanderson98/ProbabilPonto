@@ -15,8 +15,12 @@ let playGame = ()=>{
 
 let numberPlayers = 0;
 
-let players = (number) =>{
+let emptyContent = ()=>{
     containerFluid.innerHTML = ''; // Limpando todo o HTML
+}
+
+let players = (number) =>{
+    emptyContent()
     let boxNamesPlayers = document.createElement('div'); // Criando div
     boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
 
@@ -32,6 +36,7 @@ let players = (number) =>{
         inputName.classList.add('inputName');
         inputName.setAttribute('placeholder', `Nome do jogador ${i}`);
         inputName.setAttribute('type', 'text'); // Adicionando atributo
+        inputName.setAttribute('id', `namePlayer${i}`) // Adicionar id 
 
         boxNamesPlayers.appendChild(boxName); // Adicionando a div de boxNamesPlayers
         boxName.appendChild(titleName); // Adicionando title
@@ -54,6 +59,47 @@ let players = (number) =>{
 
     numberPlayers = number; // Setar jogadores
 }
-let setAvatar = ()=>{
-    console.log(numberPlayers)
+
+let hasDuplicate = (namePlayer) =>{
+    return new Set(namePlayer).size !== namePlayer.length;
 }
+
+let setAvatar = ()=>{
+    let buttonPlay = document.querySelector('.btnToPlay');
+    
+    let boxNamesPlayers = document.querySelector('.boxNamesPlayers');
+    let boxTextsInsert = document.createElement('div');
+    let userNoDetected = false;
+    let namePlayers = []
+    
+    let titleError = document.createElement('h3');
+    titleError.classList.add('errorTitle');
+    for(let i = 1; i <= numberPlayers; i++){ // Verificar se foram digitado corretamente
+        let namePlayer = (document.querySelector(`#namePlayer${i}`).value)
+        namePlayers.push(namePlayer.toLowerCase());
+        if(namePlayer == null || namePlayer == undefined || namePlayer == ''){
+            userNoDetected = true;
+            titleError.innerHTML = 'Digite os nomes corretamente e <br>tente novamente!';
+            boxNamesPlayers.appendChild(titleError);
+            break; // Parar script
+        }else if(hasDuplicate(namePlayers)){ // Ver se ja existe aquele nome
+            userNoDetected = true;
+            titleError.innerHTML = "Nome de usuário duplicado, <br>tente novamente!";
+            boxNamesPlayers.appendChild(titleError);
+            break;
+        }
+    }
+
+    setTimeout(()=>{
+        buttonPlay.setAttribute('disabled', 'disabled');
+    }, 50)
+
+    if(userNoDetected){
+        setTimeout(()=>{
+            buttonPlay.removeAttribute('disabled');
+            titleError.remove() // Remover elemento do html depois de 3 segundos
+        }, 3000)
+    }else{
+        console.log('Tudo certo');
+    }
+} 

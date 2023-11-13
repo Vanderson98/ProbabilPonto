@@ -125,6 +125,13 @@
     font-size: 1rem;
 }
 
+.errorTitle{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: -.5rem;
+    color: #fd0910;
+}
+
 @media(max-width:592px){
     .boxPlayer{
         flex-direction: column;
