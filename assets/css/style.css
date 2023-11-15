@@ -136,10 +136,40 @@
     font-size: 1.6rem;
 }
 
+.headerName{
+    display: flex;
+    width: 50%;
+    margin: .5rem;
+    justify-content: space-around;
+}
+
 .warningComment{
     color:rgb(236, 193, 0);
     font-size: 1.4rem;
     font-weight: 600;
+}
+
+.containerImages{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.imageAvatar{
+    width: 5rem;
+    margin: .5rem 0;
+    border-radius: .5rem;
+    animation: imageUp 2s alternate-reverse infinite;
+}
+
+@keyframes imageUp {
+    0%{
+        transform: scale(100%);
+    }100%{
+        transform: scale(95%);
+    }
 }
 
 @media(max-width:592px){
