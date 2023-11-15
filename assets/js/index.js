@@ -19,7 +19,7 @@ let emptyContent = ()=>{
 
 let playersDefined = 0;
 
-let players = (number, image) =>{ // Função para escolher quantos players irá ter no jogo
+let players = (number, numberImage, player) =>{ // Função para escolher quantos players irá ter no jogo
     if(number > 4){ // Caso o number seja maior que 4, irá setar o default = 4
         number = 4;
     }
@@ -40,9 +40,15 @@ let players = (number, image) =>{ // Função para escolher quantos players irá
         titleName.innerHTML = `Jogador ${i}`;
 
         let avatarButton = document.createElement('button'); // Botão de avatar
-        avatarButton.innerHTML = 'Avatar'
+        if(numberImage > 0 && i == player){ // Mudar background e desligar botão
+            avatarButton.setAttribute('disabled', 'disabled')
+            avatarButton.innerHTML = `<img src="${avataresImg[numberImage]}">`
+        }else{
+            avatarButton.innerHTML = 'Avatar'
+        }
         avatarButton.classList.add(`avatarButton${i}`);
         avatarButton.setAttribute('onclick', `setAvatarToPlayer(${i})`);
+        avatarButton.id = 'avatarButtonId'
 
         let inputName = document.createElement('input'); // Caixa de texto para inserir o nome
         inputName.classList.add('inputName');
@@ -181,6 +187,7 @@ let setAvatarToPlayer = (idPlayer)=>{ // Ir para a escolha de avatares
 let avatarDefinedToPlayer = [];
 let avataresCont = 0;
 let avatarPlayer = [];
+let avatarId, avatarIdPlayer
 
 let avatarDefined = (idPlayer, idImage)=>{   
     const playerExists = avatarPlayer.some(player => player.idPlayer === idPlayer); // Verificar se o player existe
@@ -193,7 +200,13 @@ let avatarDefined = (idPlayer, idImage)=>{
             }
         )
     }else{ // Caso seja verdadeiro, irá voltar para a inserção de dados, sem alterar as imagens que o player escolheu
-        players(playersDefined)
+        avatarPlayer.forEach(imageId => {
+            avatarId = imageId.imagem
+            avatarIdPlayer = imageId.idPlayer
+            // avatarId.push(imageId.imagem)
+        });
+        console.log(avatarId)
+        players(playersDefined, avatarId, avatarIdPlayer)
     }
     avataresCont = avatarPlayer.length
 

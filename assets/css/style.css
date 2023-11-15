@@ -98,6 +98,7 @@
 }
 
 .titleName{
+    text-align: center;
     margin: .5rem 0;
 }
 
@@ -123,6 +124,21 @@
 
 .titlePlayBtn{
     font-size: 1rem;
+}
+
+#avatarButtonId, #avatarButtonId:focus{
+    width: 5rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin-left: 1rem;
+    text-align: center;
+    padding: -.05rem;
+}
+
+#avatarButtonId img{
+    width: 100%;
+    border-radius: .5rem;
 }
 
 .errorTitle{
