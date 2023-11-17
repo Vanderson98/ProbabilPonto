@@ -95,6 +95,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin: 1rem 0;
 }
 
 .titleName{
@@ -111,14 +112,18 @@
     width: 50%;
 }
 
-.btnToPlay, .btnReturn{
+.btnToPlay, .btnReturn, .btnSave{
     margin-top: 1.5rem;
     width: 50%;
     cursor: pointer;
     padding: .5rem 0;
 }
 
-.btnReturn{
+.btnToPlay{
+    margin-top: .5rem;
+}
+
+.btnReturn, .btnSave{
     margin-top: 1.2rem;
 }
 
@@ -132,19 +137,24 @@
     outline: none;
     box-shadow: none;
     margin-left: 1rem;
+    cursor: pointer;
     text-align: center;
-    padding: -.05rem;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    letter-spacing: .05rem;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-#avatarButtonId img{
-    width: 100%;
-    border-radius: .5rem;
+#avatarButtonId:hover{
+    opacity: 75%;
 }
 
 .errorTitle{
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: -.5rem;
+    margin-bottom: .5rem;
     color: #fd0910;
 }
 
@@ -177,7 +187,16 @@
     width: 5rem;
     margin: .5rem 0;
     border-radius: .5rem;
+    cursor: pointer;
     animation: imageUp 2s alternate-reverse infinite;
+}
+
+.imageAvatarButton{
+    margin:-.3rem;
+}
+
+.avatarChoosen{
+    border: 3px solid red;
 }
 
 @keyframes imageUp {

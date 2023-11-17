@@ -1,5 +1,9 @@
 let containerFluid = document.querySelector('.containerFluid');
 
+
+
+let btnArr = []
+let btnDuplicated
 let playGame = ()=>{ // Requisitar pagina home
         let xmlHome = new XMLHttpRequest;
 
@@ -11,6 +15,8 @@ let playGame = ()=>{ // Requisitar pagina home
                 containerFluid.innerHTML = xmlHome.responseText;
             }
         }
+
+        btnArr.splice(0, btnArr.length)
 }
 
 let emptyContent = ()=>{
@@ -18,15 +24,20 @@ let emptyContent = ()=>{
 }
 
 let playersDefined = 0;
+let numberPlayer = 0;
+let avataresDefined = [];
+let avataresCont = 0;
 
-let players = (number, numberImage, player) =>{ // Função para escolher quantos players irá ter no jogo
+let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolher quantos players irá ter no jogo
     if(number > 4){ // Caso o number seja maior que 4, irá setar o default = 4
         number = 4;
     }
+
     emptyContent()
     playersDefined = number;
     let boxNamesPlayers = document.createElement('div'); // Criando div
     boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
+    let buttonId = 0;
 
     for(let i = 1; i <= number; i++){ // Criar box de acordo com o numero de jogadores
         let boxName = document.createElement('div');
@@ -40,15 +51,25 @@ let players = (number, numberImage, player) =>{ // Função para escolher quanto
         titleName.innerHTML = `Jogador ${i}`;
 
         let avatarButton = document.createElement('button'); // Botão de avatar
-        if(numberImage > 0 && i == player){ // Mudar background e desligar botão
-            avatarButton.setAttribute('disabled', 'disabled')
-            avatarButton.innerHTML = `<img src="${avataresImg[numberImage]}">`
-        }else{
-            avatarButton.innerHTML = 'Avatar'
-        }
+        avatarButton.id = 'avatarButtonId'
+        
+        avatarButton.innerHTML = 'avatar'
         avatarButton.classList.add(`avatarButton${i}`);
         avatarButton.setAttribute('onclick', `setAvatarToPlayer(${i})`);
-        avatarButton.id = 'avatarButtonId'
+
+        if (i == numberPlayer) {
+            // Verificar se a classe do botão já está no array
+            let botaoDuplicado = btnArr.some(btn => btn.classList.value === avatarButton.classList.value);
+        
+            if (!botaoDuplicado) {
+                // Adicionar o botão ao array
+                btnArr.push(avatarButton);
+                btnDuplicated = false;
+            } else {
+                btnDuplicated = true;
+            }
+        }
+        
 
         let inputName = document.createElement('input'); // Caixa de texto para inserir o nome
         inputName.classList.add('inputName');
@@ -63,6 +84,40 @@ let players = (number, numberImage, player) =>{ // Função para escolher quanto
         boxName.appendChild(headerName) // Adicionando o header no box name
         boxName.appendChild(inputName) // Adicionando input ao boxName
     }
+
+    if (!avataresDefined.includes(selectedAvatar) && numberPLayer != undefined) { // Adicionar avatares
+        if (avataresCont > playersDefined) {
+            avataresCont = playersDefined;
+        } else {
+            avataresCont += 1;
+        }
+    
+        // Limpar a matriz de avatares antes de adicionar o novo
+        avataresDefined.push(selectedAvatar);
+    
+        // Desativar o botão após a escolha do avatar
+        buttonId.disabled = true;
+        console.log(btnArr)
+    }
+
+    if(avataresCont == playersDefined && btnDuplicated != true){ // Excluir os botões quando todos jogadores selecionarem seus avatares
+        setTimeout(() => {
+            for (let i = 1; i <= playersDefined; i++) {
+                console.log(i)
+                let boxAvatar = document.querySelector(`.avatarButton${i}`)
+                boxAvatar.remove()
+            }
+        }, 0);
+    }else if(btnDuplicated == true){
+        let titleError = document.createElement('h3');
+        titleError.classList.add('errorTitle');
+        titleError.innerHTML = "Usuário já tem avatar cadastrado!"; // Message error 4
+        boxNamesPlayers.appendChild(titleError);
+        setTimeout(() => {
+           titleError.remove() 
+        }, 3000);
+
+    }
     
     let buttonPlay = document.createElement('button'); // Botão de jogar
     buttonPlay.classList.add('btnToPlay');
@@ -72,13 +127,11 @@ let players = (number, numberImage, player) =>{ // Função para escolher quanto
     let buttonReturn = document.createElement('button'); // Botão de retornar
     buttonReturn.classList.add('btnReturn');
     buttonReturn.innerHTML = "<h3>Voltar</h3>"
-    buttonReturn.setAttribute('onclick', 'playGame()');
+    buttonReturn.setAttribute('onclick', 'buttonAction("return")');
 
     containerFluid.appendChild(boxNamesPlayers) // Adicionar div no conteudo
     containerFluid.appendChild(buttonPlay);
     containerFluid.appendChild(buttonReturn);
-
-    numberPlayers = number; // Setar jogadores
 }
 
 let hasDuplicate = (namePlayer) =>{ // Ver se o nome ja existe, caso o usuario digita o nome igual a outro player, ira dar erro
@@ -94,7 +147,7 @@ let setAvatar = ()=>{ // Parte de jogadores
 
     let titleError = document.createElement('h3');
     titleError.classList.add('errorTitle');
-    for(let i = 1; i <= numberPlayers; i++){
+    for(let i = 1; i <= playersDefined; i++){
         let namePlayer = (document.querySelector(`#namePlayer${i}`).value) // Pegar valor
         namePlayers.push(namePlayer.toLowerCase()); // Transfomar em minusculo
         if(namePlayer == null || namePlayer == undefined || namePlayer == ''){ // Verificar se foram digitado corretamente
@@ -121,7 +174,7 @@ let setAvatar = ()=>{ // Parte de jogadores
         }, 3000)
     }else{
         namePlayers.sort();
-        if(avataresCont == numberPlayers){ // Ve se o numero de avatares é igual ao numero de jogadores
+        if(avataresCont == playersDefined){ // Ve se o numero de avatares é igual ao numero de jogadores
             console.log(namePlayers)
             emptyContent();
             let titleAvatar = document.createElement('h3'); // Titulo
@@ -151,6 +204,7 @@ let avataresImg = [ // Imagens de avatares
     "assets/img/avatares3.svg"
 ]
 
+let selectedAvatar = null
 
 let setAvatarToPlayer = (idPlayer)=>{ // Ir para a escolha de avatares
     emptyContent();
@@ -159,10 +213,16 @@ let setAvatarToPlayer = (idPlayer)=>{ // Ir para a escolha de avatares
     titleAvatar.innerHTML = 'Escolha seu avatar!'
     titleAvatar.classList.add('titleGame')
 
+    let saveBtn = document.createElement('button');
+    saveBtn.classList.add('btnSave');
+    saveBtn.innerHTML = '<h3>Salvar</h3>'
+    saveBtn.setAttribute('disabled', true)
+    saveBtn.setAttribute('onclick', `savePlayerAvatar(${idPlayer})`)
+
     let returnBtn = document.createElement('button') // Botão de retorno
     returnBtn.classList.add('btnReturn')
     returnBtn.innerHTML = "<h3>Voltar</h3>"
-    returnBtn.setAttribute('onclick', `players(${playersDefined})`);
+    returnBtn.setAttribute('onclick', `buttonAction('returnPlayers')`);
 
     let containerImages = document.createElement('div');
     containerImages.classList.add('containerImages')
@@ -173,42 +233,48 @@ let setAvatarToPlayer = (idPlayer)=>{ // Ir para a escolha de avatares
         let imageAvatar = document.createElement('img');
         imageAvatar.src = image
         imageNumber+=1
-        imageAvatar.setAttribute('onclick', `avatarDefined(${idPlayer},${imageNumber})`)
+        imageAvatar.setAttribute(
+            'onclick', 
+            `selectAvatar(${idPlayer},${imageNumber}, this)`)
         imageAvatar.classList.add('imageAvatar')
         containerImages.appendChild(imageAvatar)
     });
 
+    let buttonSave = ()=>{
+        saveBtn.disabled = !selectedAvatar
+    }
+
+    window.selectAvatar = (idPlayer, imageNumber, element) =>{
+        if(selectedAvatar){
+            selectedAvatar.classList.remove('selected')
+        }
+
+        selectedAvatar = element;
+        selectedAvatar.classList.add('selected');
+
+        buttonSave()
+    }
+    window.savePlayerAvatar = (idPlayer)=>{ // Salvar o avatar escolhido pelo o usuario
+        numberPlayer = idPlayer
+        players(playersDefined, selectedAvatar.src, numberPlayer)
+    }
     
     containerFluid.appendChild(titleAvatar)
     containerFluid.appendChild(containerImages)
+    containerFluid.appendChild(saveBtn)
     containerFluid.appendChild(returnBtn)
 }
 
-let avatarDefinedToPlayer = [];
-let avataresCont = 0;
-let avatarPlayer = [];
-let avatarId, avatarIdPlayer
-
-let avatarDefined = (idPlayer, idImage)=>{   
-    const playerExists = avatarPlayer.some(player => player.idPlayer === idPlayer); // Verificar se o player existe
-
-    if(!playerExists){ // Caso seja falso
-        avatarPlayer.push( // Adicionar os dados no array
-            {
-                'imagem':idImage, // Imagem
-                'idPlayer': idPlayer // Numero do jogador
-            }
-        )
-    }else{ // Caso seja verdadeiro, irá voltar para a inserção de dados, sem alterar as imagens que o player escolheu
-        avatarPlayer.forEach(imageId => {
-            avatarId = imageId.imagem
-            avatarIdPlayer = imageId.idPlayer
-            // avatarId.push(imageId.imagem)
-        });
-        console.log(avatarId)
-        players(playersDefined, avatarId, avatarIdPlayer)
+let buttonAction = (action)=>{ // Botões de Retorno
+    if(action == 'return'){
+        avataresCont = 0;
+        btnDuplicated = false
+        avataresDefined.splice(0, avataresDefined.length) // Limpar array
+        btnArr = []
+        playGame()
+        
+    }else if(action == 'returnPlayers'){
+        btnDuplicated = false
+        players(playersDefined)
     }
-    avataresCont = avatarPlayer.length
-
-    console.log(avatarPlayer)
 }
