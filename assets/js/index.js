@@ -93,7 +93,7 @@ let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolh
         }
     
         // Limpar a matriz de avatares antes de adicionar o novo
-        avataresDefined.push(selectedAvatar);
+        avataresDefined.push({ [`Avatar Jogador ${numberPlayer}`]: selectedAvatar });
     
         // Desativar o botão após a escolha do avatar
         buttonId.disabled = true;
