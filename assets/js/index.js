@@ -627,7 +627,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined)=>{ // Corrigir respo
                 levelBox.appendChild(titleError) 
                 setTimeout(()=>{
                         emptyContent('levelBox')
-                        questionToPlayer(`${levelDefined}`) 
+                        randomPlayer(`${levelDefined}`) 
                 }, 3500)
         }
     }
