@@ -512,7 +512,17 @@ let perguntasMatematicas = { // Array de perguntas
                 'Resposta 1':
                     '10'}
         }
-    ]
+    ], 
+        'Medio':[
+            {'Pergunta':
+                    'Teste medio'
+            }
+    ], 
+        'Dificil': [
+                {'Pergunta':
+                        'Teste dificil'        
+                }
+        ]
 }
 
 let buttonConfirmar, buttonPular
