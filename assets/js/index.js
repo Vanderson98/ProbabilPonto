@@ -1,10 +1,8 @@
 let container = document.querySelector('.container')
 let containerFluid = document.querySelector('.containerFluid');
-
-
-
 let btnArr = []
 let btnDuplicated
+
 let playGame = ()=>{ // Requisitar pagina home
         let xmlHome = new XMLHttpRequest;
 
@@ -625,7 +623,11 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined)=>{ // Corrigir respo
                 randomPlayer(levelDefined, idPlayer) // Recarregar pagina
             }, 1500);
         } else { // Senão, mostra que errou
-            console.log('Errou');
+                titleError.innerHTML = "Resposta errada!"
+                levelBox.appendChild(titleError) 
+                setTimeout(()=>{
+                        questionToPlayer(`${levelDefined}`) 
+                }, 3500)
         }
     }
 }
