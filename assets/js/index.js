@@ -382,7 +382,7 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
     levelBox = document.querySelector('.levelBox');
     emptyContent('levelBox')
 
-    if(level == 'Facil' || level == 'Medio'){ // Gerar botões de escolha
+    if(level != undefined){ // Gerar botões de escolha
         for(let i = 0; i < 2; i++){
             let buttonLevel = document.createElement('button');
             buttonLevel.classList.add('levelButton'+i);
@@ -404,8 +404,6 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
             }
             levelBox.appendChild(buttonLevel)
         }
-    }else{
-        console.log('Extremo')
     }
 }
 
@@ -422,6 +420,7 @@ let responderPlayer = 0
 let randomPlayer = (levelDefined, idPlayer)=>{
     emptyContent('levelBox')
     let playersArray = []
+        console.log(levelDefined)
 
         if(perguntasMatematicas[`${levelDefined}`].length == 0){
             emptyContent('levelBox')
@@ -502,13 +501,16 @@ let perguntasMatematicas = { // Array de perguntas
             'Em uma caixa com 10 bolas numeradas de 1 a 10, se você escolher uma bola ao acaso, qual é a probabilidade de escolher uma bola com um número par?',
             'Respostas':{
                 'Resposta 1':
-                    '1'}
+                    '5',
+                'Resposta 2':
+                    '50%'
+            }
         },
         {'Pergunta':
             'Suponha que você tenha uma jarra com 30 balas, das quais 5 são vermelhas, 10 são azuis e 15 são verdes. Se você escolher uma bala ao acaso, qual é a probabilidade de ser azul?',
             'Respostas':{
                 'Resposta 1':
-                    '1'}
+                    '10'}
         }
     ]
 }
