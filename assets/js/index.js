@@ -626,6 +626,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined)=>{ // Corrigir respo
                 titleError.innerHTML = "Resposta errada!"
                 levelBox.appendChild(titleError) 
                 setTimeout(()=>{
+                        emptyContent('levelBox')
                         questionToPlayer(`${levelDefined}`) 
                 }, 3500)
         }
