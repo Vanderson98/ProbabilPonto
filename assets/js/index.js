@@ -457,6 +457,7 @@ let randomPlayer = (levelDefined, idPlayer)=>{
             levelBox.appendChild(titleSuccess)
 
             setTimeout(() => {
+                    window.location.reload()
                 // playGame()
             }, 3000);
         }else{
