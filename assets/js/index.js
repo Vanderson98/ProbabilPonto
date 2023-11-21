@@ -621,7 +621,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined)=>{ // Corrigir respo
             pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
             perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
             setTimeout(() => {
-                randomPlayer(levelDefined, idPlayer)
+                window.location.reload() // Recarregar pagina
             }, 1500);
         } else { // Senão, mostra que errou
             console.log('Errou');
