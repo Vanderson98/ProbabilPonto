@@ -446,7 +446,7 @@ let randomPlayer = (levelDefined, idPlayer)=>{
             let titleSuccess = document.createElement('h3')
             titleSuccess.innerHTML = `
             <span class="text1">
-                Parabéns, ${jogadorPointsMax}! Você fez incríveis ${maiorValor} pontos no nosso jogo.🎉
+                Parabéns, <span style="text-transform: capitalize;">${jogadorPointsMax}</span>! Você fez incríveis ${maiorValor} pontos no nosso jogo.🎉
             </span>
             <span class="text2">
                 Preparamos uma nova partida para você. Em breve, estaremos redirecionando você para mais desafios emocionantes!
