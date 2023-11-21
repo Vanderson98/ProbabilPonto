@@ -8,7 +8,7 @@ let btnDuplicated
 let playGame = ()=>{ // Requisitar pagina home
         let xmlHome = new XMLHttpRequest;
 
-        xmlHome.open('get', 'http://192.168.1.9:5500/home.html');
+        xmlHome.open('get', 'https://probabil-ponto.vercel.app/home.html');
         xmlHome.send();
         
         xmlHome.onreadystatechange = ()=>{
