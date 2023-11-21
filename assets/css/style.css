@@ -86,7 +86,7 @@
 }
 
 .boxNamesPlayers{
-    width: 75% !important;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -411,11 +411,61 @@
 }
 
 @media(max-width:592px){
+    .containerFluid{
+        width: 90%;
+        padding: .5rem;
+    }
+
     .boxPlayer{
+        width: 15rem;
         flex-direction: column;
+    }
+
+    .boxName{
+        justify-content: center;
+        margin: 1rem auto;
+    }
+
+    .boxNamesPlayers{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .headerName{
+        flex-direction: column;
+        align-items: center;
+        margin: .5rem 0;
+    }
+
+    #avatarButtonId, #avatarButtonId:focus{
+        margin: 0;
+    }
+
+    #avatarButtonId{
+        padding: 1rem .5rem;
+    }
+
+    .btnToPlay, .btnReturn, .btnSave{
+        width: 75%;
     }
 
     .icons{
         margin-top: .25rem;
+    }
+
+    .levelBox{
+        padding: 1.5rem;
+    }
+
+    .levelBox h3{
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .perguntaText{
+        text-align: justify !important;
+        margin: 0 .1rem;
     }
 }
