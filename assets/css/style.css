@@ -20,12 +20,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: .5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: blue;
 }
 
 .titleGame{
     font-size: 1.8rem;
 }
+
+.titleGame2{
+    animation: textoSaindoDeCima 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    font-size: 1.8rem;
+}
+
+@keyframes textoSaindoDeCima {
+    0% {
+      letter-spacing: 1em;
+      -webkit-transform: translateZ(400px) translateY(-300px);
+              transform: translateZ(400px) translateY(-300px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      -webkit-transform: translateZ(0) translateY(0);
+              transform: translateZ(0) translateY(0);
+      opacity: 1;
+    }
+  }
 
 .btnPlay{
     margin-top: 1rem;
@@ -343,7 +368,7 @@
     border: 2px solid #252525;
     border-radius: .5rem;
     outline: none;
-    margin: 1rem auto;
+    margin: 1rem 0;
     font-size: 1rem;
     font-weight: 500;
     padding: .3rem;
