@@ -144,7 +144,7 @@ let hasDuplicate = (namePlayer) =>{ // Ver se o nome ja existe, caso o usuario d
     return new Set(namePlayer).size !== namePlayer.length;
 }
 
-let avataresImg = [ // Imagens de avatares
+let avataresImg = [ // Imagens de avatares [IMPORTANTE] -> Adicionar mais avatares
     "assets/img/avatares.svg",
     "assets/img/avatares1.svg",
     "assets/img/avatares2.svg",
@@ -393,12 +393,12 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
             switch(i){ // Trocar o html de dentro do botão, e colocar uma função para cada um
                 case 0:
                     buttonLevel.innerHTML = 'Escolha randômica'
-                    buttonLevel.setAttribute('onclick', `levelButton('random', '${level}')`)
+                        buttonLevel.setAttribute('onclick', `levelButton('random', '${level}')`)
                     break;
                 
                 case 1:
                     buttonLevel.innerHTML = 'Escolha por ordem';
-                    buttonLevel.setAttribute('onclick', `levelButton('ordem', '${level}')`)
+                        buttonLevel.setAttribute('onclick', `levelButton('ordem', '${level}')`)
                     break;
 
                 default:
@@ -440,7 +440,6 @@ let ordenedPlayers = (levelDefined)=>{
 let randomPlayer = (levelDefined, idPlayer)=>{
     emptyContent('levelBox')
     let playersArray = []
-        console.log(levelDefined)
 
         if(perguntasMatematicas[`${levelDefined}`].length == 0){
             verificarPerguntas()
@@ -454,7 +453,6 @@ let randomPlayer = (levelDefined, idPlayer)=>{
             while(playersArray.length > 0){ // Seleciona aleatoriamente algum jogador para responder a pergunta
                 let randomIndex = Math.floor(Math.random() * playersArray.length);
                 responderPlayer = playersArray[randomIndex]
-                console.log(responderPlayer, 'Jogador que irá responder')
                 questionToPlayer(levelDefined, 'Random')
                 
                 // Atualiza o índice para o próximo jogador
@@ -490,7 +488,6 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
                     jogadorPointsMax = `${namePlayers[i-1]}`
                 }
             }
-            console.log(jogadorPointsMax)
 
             let boxPlayerPlay = document.querySelectorAll('.boxPlayerPlay');
             boxPlayerPlay.forEach(element => {
@@ -560,7 +557,7 @@ let perguntasMatematicas = { // Array de perguntas
                         'Teste dificil'        
                 }
         ]
-}
+} // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
 let buttonConfirmar, buttonPular
 
@@ -584,7 +581,6 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         let numberPergunta = document.createElement('h2'); // Numero da pergunta
             numberPergunta.classList.add('numberPergunta');
             numberPergunta.innerHTML = `${randomPergunta + 1})`
-            console.log(randomPergunta)
 
         let perguntaText = document.createElement('h3') // Pergunta em texto
             perguntaText.classList.add('perguntaText');
@@ -659,7 +655,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo)=>{ // Co
         if (respostaConfirmada) { // Se for, irá adicionar ponto
             pontosPlayers[0][`Jogador ${idPlayer}`] += 300            
             let pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
-            pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
+                pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
             perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
             setTimeout(() => {
                 if(modoDeJogo == 'Random'){
