@@ -283,18 +283,21 @@
 
 .marginBottom{
     position: absolute;
-    bottom: 5.3rem;
+    bottom: 6.3rem;
     display: flex;
     flex-direction: column-reverse;
 }
 
-
-.nameBottomUser{
+.nameBottomUser, .nameTopUser{
     margin-top: 4.25rem;
     text-transform: capitalize;
     text-align: center;
     color: #f5f5f5;
     font-size: 1.2rem;
+}
+
+.nameTopUser{
+    margin-top:-2rem;
 }
 
 .levelBox {
