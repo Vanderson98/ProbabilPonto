@@ -148,7 +148,12 @@ let avataresImg = [ // Imagens de avatares [IMPORTANTE] -> Adicionar mais avatar
     "assets/img/avatares.svg",
     "assets/img/avatares1.svg",
     "assets/img/avatares2.svg",
-    "assets/img/avatares3.svg"
+    "assets/img/avatares3.svg",
+    "assets/img/avatares4.svg",
+    "assets/img/avatares5.svg",
+    "assets/img/avatares6.svg",
+    "assets/img/avatares7.svg",
+    "assets/img/avatares8.svg",
 ]
 
 let selectedAvatar = null
