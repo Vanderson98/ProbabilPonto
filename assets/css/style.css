@@ -301,7 +301,7 @@
 .levelBox {
     background-color: #F6f6f6;
     border-radius: .5rem;
-    padding: 3.5rem;
+    padding: 2rem;
     position: absolute;
     top: 50%; /* Centraliza verticalmente */
     left: 50%; /* Centraliza horizontalmente */
