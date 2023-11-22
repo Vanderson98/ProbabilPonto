@@ -282,7 +282,6 @@ let setAvatar = ()=>{ // Parte de jogadores
                 let boxPlayer = document.createElement('div');
                 boxPlayer.classList.add('boxPlayerPlay');
                 let namePlayer = document.createElement('h3')
-                namePlayer.classList.add('nameBottomUser')
                 namePlayer.innerHTML = namePlayers[i] // Coloca nome do jogador
                 boxPlayer.style.backgroundImage = `url('${avataresDefined[i]['Avatar Jogador ' + (i + 1)]}')`; // Seleciona o avatar escolhido pelo jogador e coloca ele no fundo da caixa
                 let textPoints = document.createElement('h3')
@@ -291,7 +290,9 @@ let setAvatar = ()=>{ // Parte de jogadores
 
                 if(i < 2){
                     textPoints.classList.add('marginTop')
+                    namePlayer.classList.add('nameBottomUser')
                 }else{
+                    namePlayer.classList.add('nameTopUser')
                     textPoints.classList.add('marginBottom')
                 }
 
