@@ -276,7 +276,6 @@
 }
 
 .marginTop, .marginBottom{
-    margin-top: 3.5rem;
     font-size: .9rem;
     margin-left: -.5rem;
     width: 4rem;
@@ -292,7 +291,7 @@
 
 
 .nameBottomUser{
-    margin-top: -.75rem;
+    margin-top: 3rem;
     text-transform: capitalize;
     text-align: center;
     color: #f5f5f5;
