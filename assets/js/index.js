@@ -410,7 +410,7 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
     }
 }
 
-let levelButton = (levelButton, levelDefined) =>{
+let levelButton = (levelButton, levelDefined) =>{ // Chama a função de jogar por ordem
     if(levelButton == 'ordem'){
         ordenedPlayers(levelDefined)
     }else if(levelButton == 'random'){ // Chama a função para criar players aleatorios
@@ -423,8 +423,18 @@ let currentPlayerIndex = 0
 
 let ordenedPlayers = (levelDefined)=>{
     emptyContent('levelBox')
-    responderPlayer = playersDefined
-    questionToPlayer(levelDefined, 'Ordem')
+    let playersArray = []
+
+    if(perguntasMatematicas[`${levelDefined}`].length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
+        verificarPerguntas()
+    }else{ // Senão continua
+        for(let i = 1; i <= playersDefined; i++){
+            playersArray.push(i)
+        } 
+
+        responderPlayer = playersArray[currentPlayerIndex++ % playersArray.length]
+        questionToPlayer(levelDefined, 'Ordem')
+    }
 }
 
 let randomPlayer = (levelDefined, idPlayer)=>{
@@ -433,7 +443,41 @@ let randomPlayer = (levelDefined, idPlayer)=>{
         console.log(levelDefined)
 
         if(perguntasMatematicas[`${levelDefined}`].length == 0){
-            emptyContent('levelBox')
+            verificarPerguntas()
+        }else{
+            for(let i = 1; i <= playersDefined; i++){ // Preenche o array com todos os jogadores
+                playersArray.push(i)
+            }
+
+            playersArray = arrayEmbar(playersArray)
+
+            while(playersArray.length > 0){ // Seleciona aleatoriamente algum jogador para responder a pergunta
+                let randomIndex = Math.floor(Math.random() * playersArray.length);
+                responderPlayer = playersArray[randomIndex]
+                console.log(responderPlayer, 'Jogador que irá responder')
+                questionToPlayer(levelDefined, 'Random')
+                
+                // Atualiza o índice para o próximo jogador
+                currentPlayerIndex = (currentPlayerIndex + 1) % playersDefined;
+
+                // Remove o jogador do array após a resposta
+                playersArray.splice(currentPlayerIndex, 1);
+                
+                break; // Parar script até o jogador responder a pergunta
+            }
+        }
+}
+// Função para embaralhar o array
+function arrayEmbar(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
+    emptyContent('levelBox')
             let numeroDeJogadores = Object.keys(pontosPlayers[0]).length;
             let maiorValor = -Infinity
             let jogadorPointsMax = 0
@@ -469,36 +513,6 @@ let randomPlayer = (levelDefined, idPlayer)=>{
             setTimeout(() => {
                     window.location.reload()
             }, 3000);
-        }else{
-            for(let i = 1; i <= playersDefined; i++){ // Preenche o array com todos os jogadores
-                playersArray.push(i)
-            }
-
-            playersArray = arrayEmbar(playersArray)
-
-            while(playersArray.length > 0){ // Seleciona aleatoriamente algum jogador para responder a pergunta
-                let randomIndex = Math.floor(Math.random() * playersArray.length);
-                responderPlayer = playersArray[randomIndex]
-                console.log(responderPlayer, 'Jogador que irá responder')
-                questionToPlayer(levelDefined, 'Random')
-                
-                // Atualiza o índice para o próximo jogador
-                currentPlayerIndex = (currentPlayerIndex + 1) % playersDefined;
-
-                // Remove o jogador do array após a resposta
-                playersArray.splice(currentPlayerIndex, 1);
-                
-                break; // Parar script até o jogador responder a pergunta
-            }
-        }
-}
-// Função para embaralhar o array
-function arrayEmbar(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
 }
 
 let perguntasMatematicas = { // Array de perguntas
@@ -552,13 +566,12 @@ let buttonConfirmar, buttonPular
 
 let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador irá responder, e qual é a pergunta
     let perguntasArray = []
-    console.log(modoDeJogo)
     let playerResposta = document.createElement('h3');
     playerResposta.innerHTML = `O jogador ${responderPlayer} irá responder a pergunta`
 
     levelBox.appendChild(playerResposta)
 
-    for(let i = 0; i < perguntasMatematicas[`${levelDefined}`].length; i++){
+    for(let i = 0; i < perguntasMatematicas[`${levelDefined}`].length; i++){ // Colocar cada pergunta no array
         perguntasArray.push(i)
     }
 
@@ -604,7 +617,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
     }
 }
 
-let pontosPlayers = [{
+let pontosPlayers = [{ // Array de pontos
         'Jogador 1': 0,
         'Jogador 2': 0,
         'Jogador 3': 0,
@@ -650,10 +663,9 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo)=>{ // Co
             perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
             setTimeout(() => {
                 if(modoDeJogo == 'Random'){
-                    // console.log('Randomico')
                     randomPlayer(levelDefined, idPlayer) // Recarregar pagina
                 }else if(modoDeJogo == 'Ordem'){
-                    console.log('Ordem')
+                    ordenedPlayers(levelDefined)
                 }else{
                     messageReport()
                 }
@@ -664,10 +676,11 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo)=>{ // Co
                 setTimeout(()=>{
                         emptyContent('levelBox')
                         if(modoDeJogo == 'Random'){
-                            console.log('Randomico')
-                            // randomPlayer(`${levelDefined}`) 
+                            randomPlayer(levelDefined, idPlayer) // Recarregar pagina
+                        }else if(modoDeJogo == 'Ordem'){
+                            ordenedPlayers(levelDefined)
                         }else{
-                            console.log('Ordem')
+                            messageReport()
                         }
                 }, 3500)
         }
