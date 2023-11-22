@@ -207,7 +207,7 @@
 }
 
 .containerImages{
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -217,7 +217,7 @@
 .imageAvatar{
     width: 5rem;
     background-color:#25252575;
-    margin: .5rem 0;
+    margin: .25rem;
     border-radius: .5rem;
     cursor: pointer;
     animation: imageUp 2s alternate-reverse infinite;
