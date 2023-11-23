@@ -320,6 +320,14 @@ button, button:focus{
     align-items: center;
 }
 
+.marginTopLevel{
+    margin-top: 3.5rem;
+}
+
+.levelBox h3{
+    font-size: 1.4rem;
+}
+
 .level0, .level1, .level2,
 .levelButton0, .levelButton1{
     padding: .5rem 2rem;
@@ -366,19 +374,34 @@ button, button:focus{
 }
 
 .perguntaText{
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     text-align: justify;
 }
 
-.inputResposta, .inputResposta:focus{
-    width: 100%;
-    border: 2px solid #252525;
-    border-radius: .5rem;
-    outline: none;
-    margin: 1rem 0;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: .3rem;
+.avisoText{
+    font-size: .8rem !important;
+    text-align: center;
+    width: 50%;
+    letter-spacing: .05rem;
+    color: #FF0000AA;
+    margin: .5rem auto;
+}
+
+.opcoesBox{
+    width: 105%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0 -2rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.opcao{
+    margin-top: 1.2rem;
+    font-size: 1rem !important;
+    padding: .5rem;
+    border-radius: .3rem;
 }
 
 .buttonConfirmar, .buttonPular{
@@ -490,10 +513,8 @@ button, button:focus{
     .levelBox{
         padding: 1.5rem;
     }
-
     .levelBox h3{
         text-align: center;
-        font-size: 1rem;
     }
 
     .perguntaText{
