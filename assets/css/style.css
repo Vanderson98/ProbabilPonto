@@ -404,6 +404,10 @@ button, button:focus{
     border-radius: .3rem;
 }
 
+.opcao:hover{
+    background-color:#069606;
+}
+
 .buttonConfirmar, .buttonPular{
     padding: .5rem 1rem;
     font-size: 1rem;
