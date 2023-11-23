@@ -684,7 +684,7 @@ let pontosPlayers = [{ // Array de pontos
 let opcaoDefined = (opcao) => {
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
 
-    console.log(perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`]]
+    console.log(perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`]])
 
     document.querySelectorAll('.opcao').forEach(opcao => {
         opcao.style.backgroundColor = "";
