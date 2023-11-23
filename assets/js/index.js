@@ -47,7 +47,7 @@ let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolh
     emptyContent('containerFluid')
     playersDefined = number;
     let boxNamesPlayers = document.createElement('div'); // Criando div
-f    boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
+    boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
 
     for(let i = 1; i <= number; i++){ // Criar box de acordo com o numero de jogadores
         let boxName = document.createElement('div');
