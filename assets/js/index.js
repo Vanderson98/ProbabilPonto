@@ -681,7 +681,7 @@ let pontosPlayers = [{ // Array de pontos
         'Jogador 4': 0
     }
 ]
-let opcaoDefined = (opcao) => {
+let opcaoDefined = (opcao, levelDefined, randomPergunta) => {
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
     console.log(perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`])
 
