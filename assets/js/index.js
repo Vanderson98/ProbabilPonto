@@ -47,7 +47,7 @@ let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolh
     emptyContent('containerFluid')
     playersDefined = number;
     let boxNamesPlayers = document.createElement('div'); // Criando div
-    boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
+f    boxNamesPlayers.classList.add('boxNamesPlayers') // Adicionando nome da classe
 
     for(let i = 1; i <= number; i++){ // Criar box de acordo com o numero de jogadores
         let boxName = document.createElement('div');
@@ -627,7 +627,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
-            opcao.setAttribute('onclick', `opcaoDefined(${i})`)
+            opcao.setAttribute('onclick', `opcaoDefined(${i}, ${randomPergunta}, '${levelDefined}')`)
             let opcaoLevel = ''
 
             switch(i){ // Mudar a letra da questão
