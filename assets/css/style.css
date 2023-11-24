@@ -328,7 +328,7 @@ body, .container{
     display: flex;
     flex-direction: column;
     width: 75%;
-    max-width: 40rem;
+    max-width: 35rem;
     align-items: center;
 }
 
@@ -340,10 +340,6 @@ body, .container{
 
 .titleLevel, .titleOrdem{
     margin-bottom: 1.5rem;
-}
-
-.marginTopLevel{
-    margin-top: 3.5rem;
 }
 
 .levelBox h3{
@@ -551,9 +547,6 @@ body, .container{
         font-size: 1.2rem;
     }
 
-    .marginTopLevel{
-        margin-top: 5.5rem;
-    }
 
     .perguntaText{
         text-align: justify !important;
@@ -567,4 +560,4 @@ body, .container{
     .errorTitle{
         font-size: 1rem !important;
     }
-}
+}  
