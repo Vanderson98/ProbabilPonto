@@ -72,14 +72,6 @@ body, .container{
     color:#e8f1f2;
 }
 
-.boxPlayers{
-    width: 100%;
-    margin-top: .5rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
 .boxPlayer{
     margin: 0 auto;
     display: flex;
@@ -92,10 +84,6 @@ body, .container{
     cursor: pointer;
     margin: 0 .5rem;
     transition: 250ms;
-}
-
-.boxPlayers{
-    margin: 0;
 }
 
 .boxPlayer{
