@@ -529,12 +529,12 @@ body, .container{
 
     .levelBox{
         padding: 1.5rem;
+        margin-top:12rem;
     }
     .levelBox h3{
         text-align: center;
         font-size: 1.2rem;
     }
-
 
     .perguntaText{
         text-align: justify !important;
