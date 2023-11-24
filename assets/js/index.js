@@ -137,7 +137,7 @@ let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolh
         }, 0);
     }
 
-    for(let i = 1; i<=4;i++){
+    for(let i = 1; i<=2;i++){
         pontosPlayers[0][`Jogador ${i}`] = 0
     }
     containerFluid.appendChild(avisoText)
@@ -607,9 +607,6 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         let indicePergunta = perguntasArray[randomPergunta]
         let boxPerguntas = document.createElement('div');
             boxPerguntas.classList.add('boxPerguntas');
-
-            console.log(indicePergunta)
-
             levelBox.classList.add('marginTopLevel')
 
         let boxPerguntaPlayer = document.createElement('div')
