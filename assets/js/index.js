@@ -761,6 +761,7 @@ let pontosPlayers = [{ // Array de pontos
 let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Função de definir a opção
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
     opcaoResposta = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${opcao}`]
+    console.log(opcaoResposta, 'Essa é a opção')
 
     buttonConfirmar.setAttribute('onclick', `corrigirResposta(${randomPergunta}, ${responderPlayer}, '${levelDefined}', '${modoDeJogo}', '${opcaoResposta}')`) // Muda o onclick passando os parametros corretos
 
@@ -782,6 +783,8 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
     }else{
         console.log('Erro')
     }
+
+    console.log(resposta, 'Resposta atribuida pelo o usuario')
     
     if(resposta != '' || resposta != undefined || resposta != null){
         let respostaConfirmada = false
@@ -790,7 +793,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
             respostaConfirmada = true
         }
         
-        // console.log(perguntasMatematicas[levelDefined][idPergunta]['Resposta'])
+        console.log(perguntasMatematicas[levelDefined][idPergunta]['Resposta'], 'Essa é a resposta certa')
         if (respostaConfirmada) { // Se for, irá adicionar ponto
             pontosPlayers[0][`Jogador ${idPlayer}`] += 300            
             let pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
