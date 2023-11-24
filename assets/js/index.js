@@ -677,7 +677,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             }
 
             numberArr.push(i)
-            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
+            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`] // Pegar cada opção
             opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
                     ${opcaoLevel}
