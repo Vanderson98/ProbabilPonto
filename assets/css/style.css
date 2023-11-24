@@ -527,9 +527,12 @@ body, .container{
         margin-top: .25rem;
     }
 
+    .marginTopLevel{
+        margin-top:12rem;
+    }
+
     .levelBox{
         padding: 1.5rem;
-        margin-top:12rem;
     }
     .levelBox h3{
         text-align: center;
