@@ -40,8 +40,8 @@ let avataresCont = 0;
 let avataresSelected = {}
 
 let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolher quantos players irá ter no jogo
-    if(number > 4){ // Caso o number seja maior que 4, irá setar o default = 4
-        number = 4;
+    if(number > 2){ // Caso o number seja maior que 2, irá setar o default = 2
+        number = 2;
     }
 
     emptyContent('containerFluid')
@@ -706,9 +706,7 @@ let opcaoInvalida = ()=>{ // Mostrar mensagem de erro, caso o usuario clique no 
 
 let pontosPlayers = [{ // Array de pontos
         'Jogador 1': 0,
-        'Jogador 2': 0,
-        'Jogador 3': 0,
-        'Jogador 4': 0
+        'Jogador 2': 0
     }
 ]
 
