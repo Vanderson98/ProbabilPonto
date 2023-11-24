@@ -548,31 +548,63 @@ let perguntasMatematicas = { // Array de perguntas
                 'Opção 4':
                     '2/3'},
             'Resposta':
-                'Teste 3'
+                '1/6'
         },
         {'Pergunta': 
-            'Em uma caixa com 10 bolas numeradas de 1 a 10, se você escolher uma bola ao acaso, qual é a probabilidade de escolher uma bola com um número par?',
+            'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
             'Opções':{
                 'Opção 1':
-                    'Teste 1',
+                    '1/13',
                 'Opção 2':
-                    'Teste 2',
+                    '1/26',
                 'Opção 3':
-                    'Teste 3'},
+                    '1/52',
+                'Opção 4':
+                    '4/52'},
             'Resposta': 
-                'Teste 2'
+                '1/13'
         },
         {'Pergunta':
-            'Suponha que você tenha uma jarra com 30 balas, das quais 5 são vermelhas, 10 são azuis e 15 são verdes. Se você escolher uma bala ao acaso, qual é a probabilidade de ser azul?',
+            'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
             'Opções':{
                 'Opção 1':
-                    'Teste 1',
+                    '1/5',
                 'Opção 2':
-                    'Teste 2',
+                    '1/3',
                 'Opção 3':
-                    'Teste 3'},
+                    '1/4',
+                'Opção 4':
+                    '1/2'},
             'Resposta': 
-                'Teste 1'
+                '1/2'
+        },
+        {'Pergunta':
+            'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
+            'Opções':{
+                'Opção 1':
+                    '1/6',
+                'Opção 2':
+                    '1/3',
+                'Opção 3':
+                    '1/2',
+                'Opção 4':
+                    '2/3'},
+            'Resposta': 
+                '1/3'
+        },
+        {'Pergunta':
+            'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
+            'Opções':{
+                'Opção 1':
+                    '1/5',
+                'Opção 2':
+                    '1/4',
+                'Opção 3':
+                    '1/3',
+                'Opção 4':
+                    '1/2'},
+            'Resposta': 
+                '1/3'
         }
     ], 
         'Medio':[
