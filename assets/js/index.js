@@ -537,14 +537,16 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
 let perguntasMatematicas = { // Array de perguntas
     'Facil':[
         {'Pergunta': 
-            'Se você lançar um dado justo de seis lados, qual é a probabilidade de obter um número ímpar?',
+            'Qual a probabilidade de lançar um dado justo e obter um número par?',
             'Opções':{
                 'Opção 1':
-                    'Teste 1',
+                    '1/6',
                 'Opção 2':
-                    'Teste 2',
+                    '1/3',
                 'Opção 3':
-                    'Teste 3'},
+                    '1/2',
+                'Opção 4':
+                    '2/3'},
             'Resposta':
                 'Teste 3'
         },
@@ -644,7 +646,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         
         let opcoesBox = document.createElement('div')
         opcoesBox.setAttribute('class', 'opcoesBox')
-        for(let i = 1; i<=5; i++){
+        for(let i = 1; i<=4; i++){
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
@@ -667,17 +669,11 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                 case 4:
                     opcaoLevel = 'd'
                     break;
-                    
-                case 5:
-                    opcaoLevel = 'e'
-                    break;
-
+                
                 default:
                     messageReport()
                     break;
             }
-
-            numberArr.push(i)
             getNumberRandom()
             let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
             opcao.innerHTML = `
@@ -696,6 +692,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 }
 
 console.log(numberArr)
+getNumberRandom()
 
 let getNumberRandom = ()=>{
     if(numberArr.length > 0){
