@@ -692,8 +692,6 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 }
 
 console.log(numberArr)
-getNumberRandom()
-
 let getNumberRandom = ()=>{
     if(numberArr.length > 0){
         let indiceAleatorio = Math.floor(Math.random() * numberArr.length)
@@ -707,6 +705,8 @@ let getNumberRandom = ()=>{
     }
     
 }
+
+getNumberRandom()
 
 let opcaoInvalida = ()=>{ // Mostrar mensagem de erro, caso o usuario clique no botão antes de definar a opção de resposta
     titleError.innerHTML = "Escolha uma opção antes de confirmar sua resposta!"
