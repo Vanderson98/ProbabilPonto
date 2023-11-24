@@ -10,8 +10,11 @@ button, button:focus{
     outline:none;
 }
 
+body, .container{
+    background-color: #13293d;
+}
+
 .container{
-    background-color: red;
     width: 100%;
     height: 100vh;
 }
@@ -28,11 +31,12 @@ button, button:focus{
     border-radius: .5rem;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: blue;
+    background-color: #006494;
 }
 
 .titleGame{
     font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .titleGame2{
@@ -62,6 +66,10 @@ button, button:focus{
     font-size: 1.2rem;
     padding: .5rem 2rem;
     cursor: pointer;
+    font-weight: 600;
+    background-color: #13293d;
+    border-radius: .5rem;
+    color:#e8f1f2;
 }
 
 .boxPlayers{
@@ -70,10 +78,6 @@ button, button:focus{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
-
-.box{
-    margin-top: .5rem;
 }
 
 .boxPlayer{
@@ -104,11 +108,11 @@ button, button:focus{
 }
 
 .boxPlayer{
-    background-color: #252525;
+    background-color: #13293d;
 }
 
 .boxPlayer:hover{
-    background-color: #313131;
+    background-color: #247ba0;
 }
 
 .fa-user{
@@ -125,7 +129,7 @@ button, button:focus{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .titleName{
@@ -137,6 +141,7 @@ button, button:focus{
     border: none;
     padding: .5rem;
     border-radius: .2rem;
+    background-color: #e8f1f2;
     box-shadow: none;
     outline: none;
     width: 50%;
@@ -174,6 +179,9 @@ button, button:focus{
     letter-spacing: .05rem;
     font-size: .8rem;
     font-weight: 600;
+    background-color: #247ba0;
+    color:#e8f1f2;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -187,7 +195,7 @@ button, button:focus{
     margin-bottom: .5rem;
     font-size: 1.2rem;
     letter-spacing: .05rem;
-    color: #fd0910;
+    color: #FF0050;
 }
 
 .errorTitle span{
@@ -305,8 +313,12 @@ button, button:focus{
     margin-top:-2rem;
 }
 
+.textPoints{
+    color:#f6f6f6 !important;
+}
+
 .levelBox {
-    background-color: #F6f6f6;
+    background-color: #e8f1f2;
     border-radius: .5rem;
     padding: 2rem;
     position: absolute;
@@ -318,6 +330,16 @@ button, button:focus{
     width: 75%;
     max-width: 40rem;
     align-items: center;
+}
+
+.boxLevelAviso{
+    width: 75% !important;
+    margin: 0 auto;
+    color:#FF0050 !important;
+}
+
+.titleLevel, .titleOrdem{
+    margin-bottom: 1.5rem;
 }
 
 .marginTopLevel{
@@ -335,7 +357,7 @@ button, button:focus{
     font-weight: 600;
     border-radius: .5rem;
     cursor: pointer;
-    background-color: #252525;
+    background-color: #13293d;
     transition: 250ms;
     font-size: 1.45rem;
 }
@@ -349,7 +371,7 @@ button, button:focus{
 .level1:hover,
 .level2:hover,
 .levelButton0:hover, .levelButton1:hover{
-    background-color: #313131;
+    background-color: #006494;
 }
 
 .levelButton0, .levelButton1{
@@ -361,16 +383,16 @@ button, button:focus{
 
 .boxPerguntas{
     display: flex;
+    flex-direction: column;
     margin-top: 1.5rem;
     margin-left: -1rem;
     margin-right: -1rem;
     margin-bottom: .5rem;
 }
 
-.numberPergunta{
-    margin-right: .5rem;
-    font-size: 1.6rem;
-    margin-top: -1rem;
+.boxPerguntaPlayer{
+    display: flex;
+    margin: 0 -.3rem !important;
 }
 
 .perguntaText{
@@ -392,7 +414,7 @@ button, button:focus{
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin: 0 -2rem;
+    margin-left: -1.5rem !important;
     margin-top: -1rem;
     margin-bottom: 1rem;
 }
@@ -400,13 +422,18 @@ button, button:focus{
 .opcao{
     margin-top: 1.2rem;
     font-size: 1rem !important;
-    padding: .5rem;
+    padding: .5rem .3rem;
     border-radius: .3rem;
 }
 
 .opcao:hover{
     color:#f6f6f6;
-    background-color:#069606;
+    background-color:#13293d;
+    cursor: pointer;
+}
+
+.buttonConfirmar{
+    margin-top: 1rem;
 }
 
 .buttonConfirmar, .buttonPular{
@@ -483,7 +510,8 @@ button, button:focus{
 
     .boxName{
         justify-content: center;
-        margin: 1rem auto;
+        margin: 0 auto;
+        margin-bottom: 1rem;
     }
 
     .boxNamesPlayers{
@@ -520,10 +548,23 @@ button, button:focus{
     }
     .levelBox h3{
         text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .marginTopLevel{
+        margin-top: 5.5rem;
     }
 
     .perguntaText{
         text-align: justify !important;
         margin: 0 .1rem;
+    }
+
+    .avisoText{
+        width: 100%;
+    }
+
+    .errorTitle{
+        font-size: 1rem !important;
     }
 }
