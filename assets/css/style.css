@@ -318,6 +318,7 @@ body, .container{
     width: 75%;
     max-width: 35rem;
     align-items: center;
+    margin-top:.5rem;
 }
 
 .boxLevelAviso{
