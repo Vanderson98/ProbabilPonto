@@ -730,7 +730,7 @@ let getNumberRandom = ()=>{
         numberRandom = numberArr[indiceAleatorio]
         numberArr.splice(indiceAleatorio, 1)
     }else{
-        for(let i = 1; i<=5; i++){
+        for(let i = 1; i<=4; i++){
             numberArr.push(i)
         }
         getNumberRandom()
