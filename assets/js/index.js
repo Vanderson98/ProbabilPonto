@@ -589,6 +589,7 @@ let buttonConfirmar, buttonPular
 let opcaoResposta
 
 let numberArr = []
+let numberRandom = 0
 
 let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador irá responder, e qual é a pergunta
     let perguntasArray = []
@@ -677,7 +678,8 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             }
 
             numberArr.push(i)
-            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`] // Pegar cada opção
+            getNumberRandom()
+            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
             opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
                     ${opcaoLevel}
@@ -694,6 +696,20 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 }
 
 console.log(numberArr)
+
+let getNumberRandom = ()=>{
+    if(numberArr.length > 0){
+        let indiceAleatorio = Math.floor(Math.random() * numberArr.length)
+        numberRandom = numberArr[indiceAleatorio]
+        numberArr.splice(indiceAleatorio, 1)
+    }else{
+        for(let i = 1; i<=5; i++){
+            numberArr.push(i)
+        }
+        getNumberRandom()
+    }
+    
+}
 
 let opcaoInvalida = ()=>{ // Mostrar mensagem de erro, caso o usuario clique no botão antes de definar a opção de resposta
     titleError.innerHTML = "Escolha uma opção antes de confirmar sua resposta!"
