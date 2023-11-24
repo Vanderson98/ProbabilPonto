@@ -58,7 +58,7 @@ let players = (number, selectedAvatar, numberPLayer) =>{ // Função para escolh
         let boxName = document.createElement('div');
         boxName.classList.add('boxName');
 
-        let headerName = document.createElement('div'); // Div para agreagar a parte de nome e escolha de avatar
+        let headerName = document.createElement('div'); // Div para agregar a parte de nome e escolha de avatar
         headerName.classList.add('headerName');
 
         let titleName = document.createElement('h3'); // Nome de jogador
@@ -588,7 +588,7 @@ let perguntasMatematicas = { // Array de perguntas
 let buttonConfirmar, buttonPular
 let opcaoResposta
 
-let numbersArr = []
+let numberArr = []
 
 let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador irá responder, e qual é a pergunta
     let perguntasArray = []
@@ -676,7 +676,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                     break;
             }
 
-            numbersArr.push(i)
+            numberArr.push(i)
             let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
             opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
@@ -693,6 +693,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
     }
 }
 
+console.log(numberArr)
 
 let opcaoInvalida = ()=>{ // Mostrar mensagem de erro, caso o usuario clique no botão antes de definar a opção de resposta
     titleError.innerHTML = "Escolha uma opção antes de confirmar sua resposta!"
