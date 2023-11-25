@@ -65,11 +65,23 @@ body, .container{
     margin-top: 1rem;
     font-size: 1.2rem;
     padding: .5rem 2rem;
+    display: flex;
+    align-items: center !important;
     cursor: pointer;
     font-weight: 600;
+    transition: 250ms;
     background-color: #13293d;
     border-radius: .5rem;
     color:#e8f1f2;
+}
+
+.btnPlay .fa-solid{
+    margin-top: .3rem;
+    margin-left: .5rem;
+}
+
+.btnPlay:hover{
+    background-color: #247ba0;
 }
 
 .boxPlayer{
@@ -177,7 +189,7 @@ body, .container{
     opacity: 75%;
 }
 
-.errorTitle{
+.errorTitle, .sucessTitle{
     text-align: center;
     margin-top: 1rem;
     margin-bottom: .5rem;
@@ -186,9 +198,10 @@ body, .container{
     color: #FF0050;
 }
 
-.errorTitle span{
+.errorTitle span, .sucessTitle{
     color:#32e232;
 }
+
 
 .titleAvatar{
     font-size: 1.6rem;
@@ -393,6 +406,13 @@ body, .container{
     margin: .5rem auto;
 }
 
+.avisoTextSucess{
+    font-weight: 600;
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin-top: -.5rem;
+}
+
 .opcoesBox{
     width: 105%;
     display: flex;
@@ -527,10 +547,6 @@ body, .container{
         margin-top: .25rem;
     }
 
-    .marginTopLevel{
-        margin-top:55% !important;
-    }
-
     .levelBox{
          margin-top:.5rem;
         padding: 1.5rem;
@@ -538,6 +554,10 @@ body, .container{
     .levelBox h3{
         text-align: center;
         font-size: 1.2rem;
+    }
+
+    .marginTopLevel{
+        margin-top: 1rem;
     }
 
     .perguntaText{
@@ -549,7 +569,11 @@ body, .container{
         width: 100%;
     }
 
-    .errorTitle{
+    .avisoTextSucess{
+        font-size: .8rem !important;
+    }
+
+    .errorTitle, .sucessTitle{
         font-size: 1rem !important;
     }
 }  

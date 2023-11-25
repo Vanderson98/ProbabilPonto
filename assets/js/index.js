@@ -636,6 +636,8 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         perguntasArray.push(i)
     }
 
+    let numbersGenerated = []
+
     while(perguntasArray.length > 0){
         let randomPergunta = Math.floor(Math.random() * perguntasArray.length);
         let indicePergunta = perguntasArray[randomPergunta]
@@ -679,7 +681,14 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
-            opcao.setAttribute('onclick', `opcaoDefined(${i}, '${levelDefined}', ${randomPergunta}, '${modoDeJogo}')`)
+            let numberRandom = 0
+
+            do{ // Gerar um numero aleatorio para colocar as perguntas de forma aleatoria no layout do site
+                numberRandom = Math.floor(Math.random() * 4) + 1
+            }while(numbersGenerated.includes(numberRandom))
+            numbersGenerated.push(numberRandom)
+
+            opcao.setAttribute('onclick', `opcaoDefined(${numberRandom}, '${levelDefined}', ${randomPergunta}, '${modoDeJogo}')`)
             let opcaoLevel = ''
 
             switch(i){ // Mudar a letra da questão
@@ -703,7 +712,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                     messageReport()
                     break;
             }
-            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${i}`] // Pegar cada opção
+            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
             opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
                     ${opcaoLevel}
@@ -740,7 +749,6 @@ let pontosPlayers = [{ // Array de pontos
 let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Função de definir a opção
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
     opcaoResposta = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${opcao}`]
-    console.log(opcaoResposta, 'Essa é a opção')
 
     buttonConfirmar.setAttribute('onclick', `corrigirResposta(${randomPergunta}, ${responderPlayer}, '${levelDefined}', '${modoDeJogo}', '${opcaoResposta}')`) // Muda o onclick passando os parametros corretos
 
@@ -757,28 +765,33 @@ let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Fun
 
 let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta)=>{ // Corrigir resposta
     disabledButton('disabled')
-    if(resposta != undefined){
-        console.log(resposta)
-    }else{
-        console.log('Erro')
-    }
 
-    console.log(resposta, 'Resposta atribuida pelo o usuario')
-    
     if(resposta != '' || resposta != undefined || resposta != null){
         let respostaConfirmada = false
         let respostaCorreta = perguntasMatematicas[levelDefined][idPergunta]['Resposta'] 
         if(resposta == respostaCorreta){ // Ve se a opção que o usuario marcou, é igual a resposta que está registrada
             respostaConfirmada = true
         }
-        
-        console.log(perguntasMatematicas[levelDefined][idPergunta]['Resposta'], 'Essa é a resposta certa')
         if (respostaConfirmada) { // Se for, irá adicionar ponto
-            pontosPlayers[0][`Jogador ${idPlayer}`] += 300            
+            pontosPlayers[0][`Jogador ${idPlayer}`] += 250            
             let pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
                 pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
             perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
+
+            let titleSuccess = document.createElement('h3')
+            titleSuccess.innerHTML = 'Resposta correta!'
+            titleSuccess.classList.add('sucessTitle')
+
+            let avisoText = document.createElement('avisoText')
+            avisoText.innerHTML = 'Estamos buscando sua proxima pergunta, aguarde!'
+            avisoText.setAttribute('class', 'avisoText avisoTextSucess')
+
+            levelBox.appendChild(titleSuccess)
+            levelBox.appendChild(avisoText)
+
             setTimeout(() => {
+                titleSuccess.remove()
+                avisoText.remove()
                 if(modoDeJogo == 'Random'){
                     randomPlayer(levelDefined, idPlayer) // Recarregar pagina
                 }else if(modoDeJogo == 'Ordem'){
@@ -786,7 +799,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
                 }else{
                     messageReport()
                 }
-            }, 1500);
+            }, 2500);
         } else { // Senão, mostra que errou
                 titleError.innerHTML = "Resposta errada!"
                 levelBox.appendChild(titleError) 
