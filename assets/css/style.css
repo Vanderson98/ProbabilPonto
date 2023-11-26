@@ -5,6 +5,10 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body{
+    overflow: hidden !important;
+}
+
 button, button:focus{
     border:none;
     outline:none;
@@ -256,8 +260,8 @@ body, .container{
 /* Parte tabuleiro (perguntas, avatares etc)*/
 
 .boxPlayerPlay {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
     background-color: #25252580;
     padding: .75rem 1.25rem;
     display: flex;
@@ -284,7 +288,6 @@ body, .container{
 
 .marginTop, .marginBottom{
     font-size: .75rem;
-    width: 4rem;
     text-align: center;
 }
 
