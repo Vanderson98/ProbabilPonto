@@ -22,6 +22,22 @@ let playGame = ()=>{ // Requisitar pagina home
         }
 }
 
+let perguntasUrl = new XMLHttpRequest(); // Requisitar o arquivo
+perguntasUrl.open('get', 'assets/json/perguntas.json') // Pegar arquivo
+perguntasUrl.responseType = 'text' // Requisitar o tipo de arquivo
+
+let perguntasJson
+
+perguntasUrl.onreadystatechange = ()=>{
+    if(perguntasUrl.readyState == 4 && perguntasUrl.status == 200){ // Se o status do arquivo for Ok, irá entrar nessa logica
+        let perguntasText = perguntasUrl.responseText; // Requisita todo texto
+        perguntasJson = JSON.parse(perguntasText); // Transforma em JSON
+        perguntasJson = perguntasJson['Perguntas matematicas']
+    }
+}
+
+perguntasUrl.send() // Chama a função
+
 let emptyContent = (element)=>{
     if(element == 'containerFluid'){
         containerFluid.innerHTML = ''; // Limpando todo o HTML
@@ -434,12 +450,13 @@ let levelButton = (levelButton, levelDefined) =>{ // Chama a função de jogar p
 
 let responderPlayer = 0
 let currentPlayerIndex = 0
+let keysObj
 
 let ordenedPlayers = (levelDefined)=>{
     emptyContent('levelBox')
     let playersArray = []
 
-    if(perguntasMatematicas[`${levelDefined}`].length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
+    if(keysObj.length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
         verificarPerguntas()
     }else{ // Senão continua
         for(let i = 1; i <= playersDefined; i++){
@@ -451,11 +468,14 @@ let ordenedPlayers = (levelDefined)=>{
     }
 }
 
+
 let randomPlayer = (levelDefined, idPlayer)=>{
     emptyContent('levelBox')
     let playersArray = []
 
-        if(perguntasMatematicas[`${levelDefined}`].length == 0){
+        keysObj = Object.keys(perguntasJson[`${levelDefined}`])
+
+        if(keysObj.length == 0){
             verificarPerguntas()
         }else{
             for(let i = 1; i <= playersDefined; i++){ // Preenche o array com todos os jogadores
@@ -544,91 +564,6 @@ let reniciarJogo = ()=>{
     },3000)
 }
 
-let perguntasMatematicas = { // Array de perguntas
-    'Facil':[
-        {'Pergunta': 
-            'Qual a probabilidade de lançar um dado justo e obter um número par?',
-            'Opções':{
-                'Opção 1':
-                    '1/6',
-                'Opção 2':
-                    '1/3',
-                'Opção 3':
-                    '1/2',
-                'Opção 4':
-                    '2/3'},
-            'Resposta':
-                '1/6'
-        },
-        {'Pergunta': 
-            'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
-            'Opções':{
-                'Opção 1':
-                    '1/13',
-                'Opção 2':
-                    '1/26',
-                'Opção 3':
-                    '1/52',
-                'Opção 4':
-                    '4/52'},
-            'Resposta': 
-                '1/13'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
-            'Opções':{
-                'Opção 1':
-                    '1/5',
-                'Opção 2':
-                    '1/3',
-                'Opção 3':
-                    '1/4',
-                'Opção 4':
-                    '1/2'},
-            'Resposta': 
-                '1/2'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
-            'Opções':{
-                'Opção 1':
-                    '1/6',
-                'Opção 2':
-                    '1/3',
-                'Opção 3':
-                    '1/2',
-                'Opção 4':
-                    '2/3'},
-            'Resposta': 
-                '1/3'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
-            'Opções':{
-                'Opção 1':
-                    '1/5',
-                'Opção 2':
-                    '1/4',
-                'Opção 3':
-                    '1/3',
-                'Opção 4':
-                    '1/2'},
-            'Resposta': 
-                '1/3'
-        }
-    ], 
-        'Medio':[
-            {'Pergunta':
-                    'Teste medio'
-            }
-    ], 
-        'Dificil': [
-                {'Pergunta':
-                        'Teste dificil'        
-                }
-        ]
-} // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
-
 let buttonConfirmar, buttonPular
 let opcaoResposta
 
@@ -642,7 +577,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 
     levelBox.appendChild(playerResposta)
 
-    for(let i = 0; i < perguntasMatematicas[`${levelDefined}`].length; i++){ // Colocar cada pergunta no array
+    for(let i = 0; i < keysObj.length; i++){ // Colocar cada pergunta no array
         perguntasArray.push(i)
     }
 
@@ -660,7 +595,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 
         let perguntaText = document.createElement('h3') // Pergunta em texto
             perguntaText.classList.add('perguntaText');
-            perguntaText.innerHTML = perguntasMatematicas[`${levelDefined}`][indicePergunta]['Pergunta'];
+            perguntaText.innerHTML = perguntasJson[levelDefined][`Pergunta ${indicePergunta}`]['PerguntaText']
 
         let avisoText = document.createElement('h3')
             avisoText.classList.add('avisoText')
@@ -722,7 +657,8 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                     messageReport()
                     break;
             }
-            let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
+            let opcaoText = perguntasJson[levelDefined][`Pergunta ${randomPergunta}`]['Opções'][`Opção ${numberRandom}`]
+
             opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
                     ${opcaoLevel}
@@ -758,7 +694,7 @@ let pontosPlayers = [{ // Array de pontos
 
 let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Função de definir a opção
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
-    opcaoResposta = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${opcao}`]
+    opcaoResposta = perguntasJson[levelDefined][`Pergunta ${randomPergunta}`]['Opções'][`Opção ${opcao}`]
 
     buttonConfirmar.setAttribute('onclick', `corrigirResposta(${randomPergunta}, ${responderPlayer}, '${levelDefined}', '${modoDeJogo}', '${opcaoResposta}')`) // Muda o onclick passando os parametros corretos
 
@@ -778,7 +714,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
 
     if(resposta != '' || resposta != undefined || resposta != null){
         let respostaConfirmada = false
-        let respostaCorreta = perguntasMatematicas[levelDefined][idPergunta]['Resposta'] 
+        let respostaCorreta = perguntasJson[levelDefined][`Pergunta ${idPergunta}`]['Resposta'] 
         if(resposta == respostaCorreta){ // Ve se a opção que o usuario marcou, é igual a resposta que está registrada
             respostaConfirmada = true
         }
@@ -786,7 +722,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
             pontosPlayers[0][`Jogador ${idPlayer}`] += 250            
             let pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
                 pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
-            perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
+            keysObj.splice(idPergunta, 1)
 
             let titleSuccess = document.createElement('h3')
             titleSuccess.innerHTML = 'Resposta correta!'

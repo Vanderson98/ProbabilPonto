@@ -60,6 +60,64 @@
                     "Opção 4": "1/2"
                 },
                 "Resposta": "1/3"
+            },
+            "Pergunta 6":{
+                "PerguntaText": 
+                "Em uma roleta com 18 números vermelhos, 18 números pretos e um número verde (zero), qual é a probabilidade de a bola parar em um número vermelho?",
+                
+                "Opções":{
+                    "Opção 1": "1/18",
+                    "Opção 2": "1/36",
+                    "Opção 3": "1/3",
+                    "Opção 4": "1/2"
+                },
+                "Resposta": "1/2"
+            },
+            "Pergunta 7":{
+                "PerguntaText": 
+                "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
+
+                "Opções":{
+                    "Opção 1": "1/12",
+                    "Opção 2": "1/6",
+                    "Opção 3": "1/3",
+                    "Opção 4": "1/2"
+                },
+                "Resposta": "1/6"
+            }, 
+            "Pergunta 8":{
+                "PerguntaText": 
+                "Em uma sala, há 8 estudantes do sexo masculino e 12 estudantes do sexo feminino. Se escolhermos aleatoriamente um estudante, qual é a probabilidade de ser do sexo masculino?",
+
+                "Opções":{
+                    "Opção 1": "2/5",
+                    "Opção 2": "1/4",
+                    "Opção 3": "4/5",
+                    "Opção 4": "1/2"
+                }, 
+                "Resposta": "2/5"
+            },
+            "Pergunta 9":{
+                "PerguntaText":
+                "Se escolhermos aleatoriamente um número de 1 a 20, qual é a probabilidade de ser um número primo?",
+                
+                "Opções":{
+                    "Opção 1": "1/2",
+                    "Opção 2": "2/5",
+                    "Opção 3": "1/3",
+                    "Opção 4": "1/4"
+                }, 
+                "Resposta": "2/5"
+            },
+            "Pergunta 10":{
+                "PerguntaText":"Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
+
+                "Opções":{
+                    "Opção 1": "1/2",
+                    "Opção 2": "2/3",
+                    "Opção 3": "3/4",
+                    "Opção 4": "5/6"
+                }
             }
         }
     }
