@@ -8,6 +8,11 @@
 button, button:focus{
     border:none;
     outline:none;
+    cursor: pointer;
+}
+
+button:disabled{
+    opacity: 50%;
 }
 
 body, .container{
@@ -202,6 +207,9 @@ body, .container{
     color:#32e232;
 }
 
+.sucessTitle{
+    text-transform: capitalize;
+}
 
 .titleAvatar{
     font-size: 1.6rem;
@@ -258,9 +266,7 @@ body, .container{
 }
 
 .boxPlayerTopLeft, 
-.boxPlayerTopRight,
-.boxPlayerBottomLeft,
-.boxPlayerBottomRight {
+.boxPlayerTopRight {
     position: absolute;
     display: inline-block;
 }
@@ -274,19 +280,6 @@ body, .container{
 .boxPlayerTopRight, .boxPlayerBottomRight {
     right: 0;
     border-bottom-left-radius: .5rem;
-}
-
-/* Bottom */
-.boxPlayerBottomLeft {
-    bottom: 0;
-    border-radius: 0;
-    border-top-right-radius: .5rem;
-}
-
-.boxPlayerBottomRight {
-    bottom: 0;
-    border-radius: 0;
-    border-top-left-radius: .5rem;
 }
 
 .marginTop, .marginBottom{
@@ -493,6 +486,33 @@ body, .container{
     font-size: 1rem;
 }
 
+.buttonReniciar, .buttonNivel{
+    margin-top: 1rem;
+    border-radius: .3rem;
+    padding: .5rem;
+    font-weight: 600;
+    text-align: center;
+    width: 10rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    letter-spacing: .05rem;
+    transition: 250ms;
+}
+
+.buttonNivel{
+    background-color: #f0a000;
+    color: #e8f1f2;
+}
+
+.buttonReniciar{
+    color: #e8f1f2;
+    background-color: #FF0050;
+}
+
+.buttonReniciar:hover, .buttonNivel:hover{
+    opacity: 75%;
+}
+
 @keyframes imageUp {
     0%{
         transform: scale(100%);
@@ -557,7 +577,7 @@ body, .container{
     }
 
     .marginTopLevel{
-        margin-top: 1rem;
+        margin-top: 1.2rem;
     }
 
     .perguntaText{
@@ -575,5 +595,9 @@ body, .container{
 
     .errorTitle, .sucessTitle{
         font-size: 1rem !important;
+    }
+
+    .text2{
+        width: 115%;
     }
 }  

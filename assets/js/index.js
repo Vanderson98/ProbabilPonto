@@ -311,14 +311,6 @@ let setAvatar = ()=>{ // Parte de jogadores
                         boxPlayer.classList.add('boxPlayerTopRight')
                         break;
 
-                    case 2:
-                        boxPlayer.classList.add('boxPlayerBottomLeft')
-                        break;
-
-                    case 3:
-                        boxPlayer.classList.add('boxPlayerBottomRight')
-                        break;
-
                     default:
                         messageReport()
                         break;
@@ -496,6 +488,8 @@ function arrayEmbar(array) {
     return array;
 }
 
+let buttonNivel, buttonReniciar
+
 let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
     emptyContent('levelBox')
             let numeroDeJogadores = Object.keys(pontosPlayers[0]).length;
@@ -521,17 +515,33 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
             <span class="text1">
                 Parabéns, <span style="text-transform: capitalize;">${jogadorPointsMax}</span>! Você fez incríveis ${maiorValor} pontos no nosso jogo.🎉
             </span>
-            <span class="text2">
-                Preparamos uma nova partida para você. Em breve, estaremos redirecionando você para mais desafios emocionantes!
+            <span class="text2">Você está pronto para enfrentar um novo desafio com um nível mais elevado, ou prefere recomeçar um novo jogo?
             </span>
             `
-            titleSuccess.classList.add('titleSucess')
+            buttonNivel = document.createElement('button')
+            buttonNivel.innerHTML = 'Desafio Avançado'
+            buttonNivel.classList.add('buttonNivel')
+            buttonNivel.setAttribute('onclick', 'novoNivelJogo()')
 
+            buttonReniciar = document.createElement('button')
+            buttonReniciar.innerHTML = 'Recomeçar jogo'
+            buttonReniciar.classList.add('buttonReniciar')
+            buttonReniciar.setAttribute('onclick', `reniciarJogo()`)
+
+            titleSuccess.classList.add('titleSucess')
             levelBox.appendChild(titleSuccess)
 
-            setTimeout(() => {
-                    window.location.reload()
-            }, 3000);
+            levelBox.appendChild(buttonNivel)
+            levelBox.appendChild(buttonReniciar)
+}
+
+let reniciarJogo = ()=>{
+    buttonNivel.setAttribute('disabled', true)
+    buttonReniciar.setAttribute('disabled', true)
+
+    setTimeout(()=>{    
+        window.location.reload()
+    },3000)
 }
 
 let perguntasMatematicas = { // Array de perguntas
@@ -800,7 +810,8 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
                     messageReport()
                 }
             }, 2500);
-        } else { // Senão, mostra que errou
+        } else { // Senão, mostra que errou    
+                titleError.classList.remove('sucessTitle')
                 titleError.innerHTML = "Resposta errada!"
                 levelBox.appendChild(titleError) 
                 setTimeout(()=>{
