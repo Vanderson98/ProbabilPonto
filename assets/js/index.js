@@ -370,7 +370,7 @@ let messageReport = ()=>{ // Função para mensagem de erro
     console.log('[ERRO] Contate a equipe de desenvolvimento! [ERRO]');
 }
 
-let levelBox
+let levelBox, levelBtn
 
 let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
     switch(level){
@@ -407,11 +407,14 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
             switch(i){ // Trocar o html de dentro do botão, e colocar uma função para cada um
                 case 0:
                     buttonLevel.innerHTML = 'Escolha randômica'
+                        levelBtn = 'random'
                         buttonLevel.setAttribute('onclick', `levelButton('random', '${level}')`)
+                    
                     break;
                 
                 case 1:
                     buttonLevel.innerHTML = 'Escolha por ordem';
+                        levelBtn = 'ordem'
                         buttonLevel.setAttribute('onclick', `levelButton('ordem', '${level}')`)
                     break;
 
@@ -521,7 +524,7 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
             buttonNivel = document.createElement('button')
             buttonNivel.innerHTML = 'Desafio Avançado'
             buttonNivel.classList.add('buttonNivel')
-            buttonNivel.setAttribute('onclick', 'novoNivelJogo()')
+            buttonNivel.setAttribute('onclick', `novoNivelJogo(${levelButton})`)
 
             buttonReniciar = document.createElement('button')
             buttonReniciar.innerHTML = 'Recomeçar jogo'
@@ -533,6 +536,13 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
 
             levelBox.appendChild(buttonNivel)
             levelBox.appendChild(buttonReniciar)
+}
+
+let novoNivelJogo = ()=>{
+    buttonNivel.setAttribute('disabled', true)
+    buttonReniciar.setAttribute('disabled', true)
+
+    levelButton(levelButton,'Medio')
 }
 
 let reniciarJogo = ()=>{
