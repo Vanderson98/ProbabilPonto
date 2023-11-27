@@ -682,13 +682,20 @@ let perguntasMatematicas = { // Array de perguntas
     ], 
         'Medio':[
             {'Pergunta':
-                    'Teste medio'
+                    'Teste medio', 
+             "Opções":{
+                 "Opção 1": "teste"
+             }, "Resposta": "Teste"
             }
     ], 
         'Dificil': [
                 {'Pergunta':
-                        'Teste dificil'        
-                }
+                        'Teste dificil', 
+                 "Opções":{
+                     "Opção 1": "teste"
+                 }, "Resposta": "Teste"
+                }        
+            }
         ]
 } // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
