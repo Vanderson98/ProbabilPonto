@@ -558,7 +558,8 @@ let perguntasMatematicas = { // Array de perguntas
                 },
             'Resposta':
                 '1/6'
-        }//,
+        }
+        //,
         // {'Pergunta': 
         //     'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
         //     'Opções':{
@@ -727,7 +728,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         
         let opcoesBox = document.createElement('div')
         opcoesBox.setAttribute('class', 'opcoesBox')
-        for(let i = 1; i<=4; i++){
+        for(let i = 1; i <= Object.keys(perguntasMatematicas['Facil'][0]['Opções']).length; i++){
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
