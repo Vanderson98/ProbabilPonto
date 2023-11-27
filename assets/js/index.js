@@ -764,11 +764,13 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                     break;
             }
             let opcaoText = perguntasMatematicas[levelDefined][randomPergunta]['Opções'][`Opção ${numberRandom}`] // Pegar cada opção
-            opcao.innerHTML = `
+            if(opcaoText != undefined){
+                opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
                     ${opcaoLevel}
                 </span>) ${opcaoText} 
             ` // Mostrar todas as opções para o player
+            }
             opcoesBox.appendChild(opcao)
         }
 
