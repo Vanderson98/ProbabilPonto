@@ -523,7 +523,7 @@ let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas 
             buttonNivel = document.createElement('button')
             buttonNivel.innerHTML = 'Desafio Avançado'
             buttonNivel.classList.add('buttonNivel')
-            buttonNivel.setAttribute('onclick', `novoNivelJogo('${levelBtn}', ${levelDefined})`)
+            buttonNivel.setAttribute('onclick', `novoNivelJogo('${levelBtn}', '${levelDefined}')`)
 
             buttonReniciar = document.createElement('button')
             buttonReniciar.innerHTML = 'Recomeçar jogo'
