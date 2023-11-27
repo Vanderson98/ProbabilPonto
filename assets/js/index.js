@@ -407,14 +407,12 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
             switch(i){ // Trocar o html de dentro do botão, e colocar uma função para cada um
                 case 0:
                     buttonLevel.innerHTML = 'Escolha randômica'
-                        levelBtn = 'random'
                         buttonLevel.setAttribute('onclick', `levelButton('random', '${level}')`)
                     
                     break;
                 
                 case 1:
                     buttonLevel.innerHTML = 'Escolha por ordem';
-                        levelBtn = 'ordem'
                         buttonLevel.setAttribute('onclick', `levelButton('ordem', '${level}')`)
                     break;
 
@@ -428,6 +426,7 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
 }
 
 let levelButton = (levelButton, levelDefined) =>{ // Chama a função de jogar por ordem
+    levelBtn = levelButton
     if(levelButton == 'ordem'){
         ordenedPlayers(levelDefined)
     }else if(levelButton == 'random'){ // Chama a função para criar players aleatorios
