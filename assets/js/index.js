@@ -757,7 +757,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             let numberRandom = 0
 
             do{ // Gerar um numero aleatorio para colocar as perguntas de forma aleatoria no layout do site
-                numberRandom = Math.floor(Math.random() * 4) + 1
+                numberRandom = Math.floor(Math.random() * Object.keys(perguntasMatematicas['Facil'][0]['Opções']).length) + 1
             }while(numbersGenerated.includes(numberRandom))
             numbersGenerated.push(numberRandom)
 
