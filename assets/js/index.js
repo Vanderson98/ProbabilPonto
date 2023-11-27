@@ -668,7 +668,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
 
             let perguntaText = verificarElemento(perguntasJson, levelDefined, numberAleatorio, numberRandom, modoDeJogo)
 
-            if(perguntaText){
+            if(perguntaText){ // Se tiver perguntas ainda, ira retornar true
                 perguntaTextPlayer.innerHTML = perguntaText['PerguntaText']
                 opcaoText = perguntaText['Opções'][`Opção ${numberRandom}`]
                 opcao.innerHTML = `
@@ -677,7 +677,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
                 </span>) ${opcaoText} 
                 ` // Mostrar todas as opções para o player
                 opcoesBox.appendChild(opcao)
-            }else{
+            }else{ // Senão chama a função de verificar perguntas
                 console.log('Acabou as perguntas')
             }
         }
