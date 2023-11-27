@@ -523,7 +523,7 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
             buttonNivel = document.createElement('button')
             buttonNivel.innerHTML = 'Desafio Avançado'
             buttonNivel.classList.add('buttonNivel')
-            buttonNivel.setAttribute('onclick', `novoNivelJogo('${levelBtn}')`)
+            buttonNivel.setAttribute('onclick', `novoNivelJogo('${levelBtn}', ${levelDefined})`)
 
             buttonReniciar = document.createElement('button')
             buttonReniciar.innerHTML = 'Recomeçar jogo'
@@ -539,21 +539,21 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
 
 let nivelMedio, nivelDificil
 
-let novoNivelJogo = (btnLevel)=>{
+let novoNivelJogo = (btnLevel, levelDefined)=>{
     buttonNivel.setAttribute('disabled', true)
     buttonReniciar.setAttribute('disabled', true)
-
+    console.log(levelDefined)
     setTimeout(()=>{
         if(nivelMedio != true){
             nivelMedio = true;
-            levelButton(btnLevel, 'Medio')
+            // levelButton(btnLevel, 'Medio')
         }else if(nivelMedio == true){
             nivelDificil = true
-            levelButton(btnLevel, 'Dificil')
+            // levelButton(btnLevel, 'Dificil')
         }else if(nivelDificil == true && nivelMedio == true){
             nivelMedio = false; 
             nivelDificil = false
-            window.location.reload()
+            // window.location.reload()
         }
     }, 3000)
 }
