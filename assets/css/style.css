@@ -426,7 +426,7 @@ body, .container{
     border-radius: .3rem;
 }
 
-.opcao:hover{
+.opcao:hover, .opcao:active{
     color:#f6f6f6;
     background-color:#13293d;
     cursor: pointer;
