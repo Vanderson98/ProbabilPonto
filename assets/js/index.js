@@ -442,7 +442,7 @@ let ordenedPlayers = (levelDefined)=>{
     let playersArray = []
 
     if(perguntasMatematicas[`${levelDefined}`].length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
-        verificarPerguntas()
+        verificarPerguntas(levelDefined)
     }else{ // Senão continua
         for(let i = 1; i <= playersDefined; i++){
             playersArray.push(i)
@@ -492,7 +492,7 @@ function arrayEmbar(array) {
 
 let buttonNivel, buttonReniciar
 
-let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
+let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
     emptyContent('levelBox')
             let numeroDeJogadores = Object.keys(pontosPlayers[0]).length;
             let maiorValor = -Infinity
