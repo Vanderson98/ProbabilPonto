@@ -650,7 +650,7 @@ let perguntasMatematicas = { // Array de perguntas
            }, 'Resposta': "2/5"
         },{"Pergunta":
             "Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
-           "Opção":{
+           "Opções":{
                "Opção 1": "1/2",
                 "Opção 2": "2/3",
                 "Opção 3": "3/4",
