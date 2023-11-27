@@ -523,7 +523,7 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
             buttonNivel = document.createElement('button')
             buttonNivel.innerHTML = 'Desafio Avançado'
             buttonNivel.classList.add('buttonNivel')
-            buttonNivel.setAttribute('onclick', `novoNivelJogo(${levelButton})`)
+            buttonNivel.setAttribute('onclick', `novoNivelJogo(${levelBtn})`)
 
             buttonReniciar = document.createElement('button')
             buttonReniciar.innerHTML = 'Recomeçar jogo'
@@ -537,11 +537,25 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
             levelBox.appendChild(buttonReniciar)
 }
 
-let novoNivelJogo = ()=>{
+let nivelMedio, nivelDificil
+
+let novoNivelJogo = (levelBtn)=>{
     buttonNivel.setAttribute('disabled', true)
     buttonReniciar.setAttribute('disabled', true)
 
-    levelButton(levelButton,'Medio')
+    setTimeout(()=>{
+        if(nivelMedio != true){
+            nivelMedio = true;
+            levelButton(levelBtn, 'Medio')
+        }else if(nivelMedio == true){
+            nivelDificil = true
+            levelButton(levelBtn, 'Dificil')
+        }else if(nivelDificil == true && nivelMedio == true){
+            nivelMedio = false; 
+            nivelDificil = false
+            window.location.reload()
+        }
+    }, 3000)
 }
 
 let reniciarJogo = ()=>{
@@ -568,103 +582,103 @@ let perguntasMatematicas = { // Array de perguntas
             'Resposta':
                 '1/6'
         }
-        ,{'Pergunta': 
-            'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
-            'Opções':{
-                'Opção 1':
-                    '1/13',
-                'Opção 2':
-                    '1/26',
-                'Opção 3':
-                    '1/52',
-                'Opção 4':
-                    '4/52'},
-            'Resposta': 
-                '1/13'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
-            'Opções':{
-                'Opção 1':
-                    '1/5',
-                'Opção 2':
-                    '1/3',
-                'Opção 3':
-                    '1/4',
-                'Opção 4':
-                    '1/2'},
-            'Resposta': 
-                '1/2'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
-            'Opções':{
-                'Opção 1':
-                    '1/6',
-                'Opção 2':
-                    '1/3',
-                'Opção 3':
-                    '1/2',
-                'Opção 4':
-                    '2/3'},
-            'Resposta': 
-                '1/3'
-        },
-        {'Pergunta':
-            'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
-            'Opções':{
-                'Opção 1':
-                    '1/5',
-                'Opção 2':
-                    '1/4',
-                'Opção 3':
-                    '1/3',
-                'Opção 4':
-                    '1/2'},
-            'Resposta': 
-                '1/3'
-        },{'Pergunta':
-            "Em uma roleta com 18 números vermelhos, 18 números pretos e um número verde (zero), qual é a probabilidade de a bola parar em um número vermelho?",
-           'Opções':{
-               "Opção 1": "1/18",
-                "Opção 2": "1/36",
-                "Opção 3": "1/3",
-                "Opção 4": "1/2"
-           },
-           'Resposta':'1/2'
-        },{'Pergunta':
-            "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
-           'Opções':{
-               "Opção 1": "1/12",
-                "Opção 2": "1/6",
-                "Opção 3": "1/3",
-                "Opção 4": "1/2"
-           }, "Resposta": "1/6"
-        },{'Pergunta':
-            "Em uma sala, há 8 estudantes do sexo masculino e 12 estudantes do sexo feminino. Se escolhermos aleatoriamente um estudante, qual é a probabilidade de ser do sexo masculino?",
-            'Opções':{
-                "Opção 1": "2/5",
-                "Opção 2": "1/4",
-                "Opção 3": "4/5",
-                "Opção 4": "1/2"
-            }, 'Resposta': "2/5"
-        },{"Pergunta":
-            "Se escolhermos aleatoriamente um número de 1 a 20, qual é a probabilidade de ser um número primo?",
-           "Opções":{
-               "Opção 1": "1/2",
-                "Opção 2": "2/5",
-                "Opção 3": "1/3",
-                "Opção 4": "1/4"
-           }, 'Resposta': "2/5"
-        },{"Pergunta":
-            "Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
-           "Opções":{
-               "Opção 1": "1/2",
-                "Opção 2": "2/3",
-                "Opção 3": "3/4",
-                "Opção 4": "5/6"
-           }, "Resposta": "5/6"
-        }
+        // ,{'Pergunta': 
+        //     'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
+        //     'Opções':{
+        //         'Opção 1':
+        //             '1/13',
+        //         'Opção 2':
+        //             '1/26',
+        //         'Opção 3':
+        //             '1/52',
+        //         'Opção 4':
+        //             '4/52'},
+        //     'Resposta': 
+        //         '1/13'
+        // },
+        // {'Pergunta':
+        //     'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
+        //     'Opções':{
+        //         'Opção 1':
+        //             '1/5',
+        //         'Opção 2':
+        //             '1/3',
+        //         'Opção 3':
+        //             '1/4',
+        //         'Opção 4':
+        //             '1/2'},
+        //     'Resposta': 
+        //         '1/2'
+        // },
+        // {'Pergunta':
+        //     'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
+        //     'Opções':{
+        //         'Opção 1':
+        //             '1/6',
+        //         'Opção 2':
+        //             '1/3',
+        //         'Opção 3':
+        //             '1/2',
+        //         'Opção 4':
+        //             '2/3'},
+        //     'Resposta': 
+        //         '1/3'
+        // },
+        // {'Pergunta':
+        //     'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
+        //     'Opções':{
+        //         'Opção 1':
+        //             '1/5',
+        //         'Opção 2':
+        //             '1/4',
+        //         'Opção 3':
+        //             '1/3',
+        //         'Opção 4':
+        //             '1/2'},
+        //     'Resposta': 
+        //         '1/3'
+        // },{'Pergunta':
+        //     "Em uma roleta com 18 números vermelhos, 18 números pretos e um número verde (zero), qual é a probabilidade de a bola parar em um número vermelho?",
+        //    'Opções':{
+        //        "Opção 1": "1/18",
+        //         "Opção 2": "1/36",
+        //         "Opção 3": "1/3",
+        //         "Opção 4": "1/2"
+        //    },
+        //    'Resposta':'1/2'
+        // },{'Pergunta':
+        //     "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
+        //    'Opções':{
+        //        "Opção 1": "1/12",
+        //         "Opção 2": "1/6",
+        //         "Opção 3": "1/3",
+        //         "Opção 4": "1/2"
+        //    }, "Resposta": "1/6"
+        // },{'Pergunta':
+        //     "Em uma sala, há 8 estudantes do sexo masculino e 12 estudantes do sexo feminino. Se escolhermos aleatoriamente um estudante, qual é a probabilidade de ser do sexo masculino?",
+        //     'Opções':{
+        //         "Opção 1": "2/5",
+        //         "Opção 2": "1/4",
+        //         "Opção 3": "4/5",
+        //         "Opção 4": "1/2"
+        //     }, 'Resposta': "2/5"
+        // },{"Pergunta":
+        //     "Se escolhermos aleatoriamente um número de 1 a 20, qual é a probabilidade de ser um número primo?",
+        //    "Opções":{
+        //        "Opção 1": "1/2",
+        //         "Opção 2": "2/5",
+        //         "Opção 3": "1/3",
+        //         "Opção 4": "1/4"
+        //    }, 'Resposta': "2/5"
+        // },{"Pergunta":
+        //     "Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
+        //    "Opções":{
+        //        "Opção 1": "1/2",
+        //         "Opção 2": "2/3",
+        //         "Opção 3": "3/4",
+        //         "Opção 4": "5/6"
+        //    }, "Resposta": "5/6"
+        // }
     ], 
         'Medio':[
             {'Pergunta':
