@@ -627,7 +627,7 @@ let perguntasMatematicas = { // Array de perguntas
         },{'Pergunta':
             "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
            'Opções':{
-               Opção 1": "1/12",
+               "Opção 1": "1/12",
                 "Opção 2": "1/6",
                 "Opção 3": "1/3",
                 "Opção 4": "1/2"
