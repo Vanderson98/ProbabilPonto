@@ -439,6 +439,7 @@ let currentPlayerIndex = 0
 
 let ordenedPlayers = (levelDefined)=>{
     emptyContent('levelBox')
+    console.log(levelDefined)
     let playersArray = []
 
     if(perguntasMatematicas[`${levelDefined}`].length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
@@ -494,6 +495,7 @@ let buttonNivel, buttonReniciar
 
 let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
     emptyContent('levelBox')
+    console.log(levelDefined)
             let numeroDeJogadores = Object.keys(pontosPlayers[0]).length;
             let maiorValor = -Infinity
             let jogadorPointsMax = 0
