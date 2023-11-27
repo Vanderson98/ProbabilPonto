@@ -565,18 +565,18 @@ let reniciarJogo = ()=>{
     },3000)
 }
 
-let buttonConfirmar, buttonPular, opcaoResposta, numberAleatorio
-let verificarElemento = (perguntasJson, levelDefined, numberAleatorio) => {
+let buttonConfirmar, buttonPular, opcaoResposta, opcao, numberRandom
+
+let verificarElemento = (perguntasJson, levelDefined, numberAleatorio, numberRandom, modoDeJogo) => {
     if (perguntasJson[levelDefined] && perguntasJson[levelDefined][`Pergunta ${numberAleatorio}`] !== undefined) {
         return perguntasJson[levelDefined][`Pergunta ${numberAleatorio}`];
     } else {
-        if (Object.keys(perguntasJson[levelDefined]).length > 1) {
-            let proximoInd = Math.floor(Math.random() * Object.keys(perguntasJson[levelDefined]).length);
-            console.log(`Escolhendo próximo índice aleatório: ${proximoInd}`);
-            return verificarElemento(perguntasJson, levelDefined, proximoInd);
-        } else {
-            console.log('Só existe um elemento disponível.');
-            return verificarElemento(perguntasJson, levelDefined, Object.keys(perguntasJson[levelDefined]).length);
+        if (Object.keys(perguntasJson[levelDefined]).length > 1) { // Não retorna a mesma pergunta
+            let proximoInd = Math.floor(Math.random() * Object.keys(perguntasJson[levelDefined]).length);   
+            return verificarElemento(perguntasJson, levelDefined, proximoInd, numberRandom);
+        } else { // Caso nao tenha indice maior que 1, irá retorna o 0
+            let unicoIndice = Object.keys(perguntasJson[levelDefined])[0];
+            return perguntasJson[levelDefined][unicoIndice];
         }
     }
 };
@@ -605,9 +605,6 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         let perguntaTextPlayer = document.createElement('h3') // Pergunta em texto
             perguntaTextPlayer.classList.add('perguntaText');
 
-            console.log(numberAleatorio, 'Pergunta')
-            let perguntaText = verificarElemento(perguntasJson, levelDefined, numberAleatorio)
-
         let avisoText = document.createElement('h3')
             avisoText.classList.add('avisoText')
             avisoText.innerHTML = 'Clique em algumas das opções e depois em confirmar para enviar a resposta!'
@@ -634,7 +631,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         let opcoesBox = document.createElement('div')
         opcoesBox.setAttribute('class', 'opcoesBox')
         for(let i = 1; i<=4; i++){
-            let opcao = document.createElement('h3');
+            opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
             let numberRandom = 0
@@ -669,9 +666,10 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
             let opcaoText
             opcao.setAttribute('onclick', `opcaoDefined(${numberRandom}, '${levelDefined}', ${numberAleatorio}, '${modoDeJogo}')`)
 
+            let perguntaText = verificarElemento(perguntasJson, levelDefined, numberAleatorio, numberRandom, modoDeJogo)
+
             if(perguntaText){
                 perguntaTextPlayer.innerHTML = perguntaText['PerguntaText']
-                opcao.setAttribute('onclick', `opcaoDefined(${numberRandom}, '${levelDefined}', ${numberAleatorio}, '${modoDeJogo}')`)
                 opcaoText = perguntaText['Opções'][`Opção ${numberRandom}`]
                 opcao.innerHTML = `
                 <span style="text-transform:uppercase;">
@@ -712,6 +710,7 @@ let pontosPlayers = [{ // Array de pontos
 let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Função de definir a opção
     let opcaoDefinedPlayer = document.querySelector('.opcao' + opcao);
     opcaoResposta = perguntasJson[levelDefined][`Pergunta ${numberAleatorio}`]['Opções'][`Opção ${opcao}`];
+    console.log(opcaoResposta)
 
     buttonConfirmar.setAttribute('onclick', `corrigirResposta(${randomPergunta}, ${responderPlayer}, '${levelDefined}', '${modoDeJogo}', '${opcaoResposta}')`) // Muda o onclick passando os parametros corretos
 
