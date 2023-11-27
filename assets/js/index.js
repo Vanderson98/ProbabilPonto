@@ -539,17 +539,17 @@ let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, 
 
 let nivelMedio, nivelDificil
 
-let novoNivelJogo = (levelBtn)=>{
+let novoNivelJogo = (btnLevel)=>{
     buttonNivel.setAttribute('disabled', true)
     buttonReniciar.setAttribute('disabled', true)
 
     setTimeout(()=>{
         if(nivelMedio != true){
             nivelMedio = true;
-            levelButton(levelBtn, 'Medio')
+            levelButton(btnLevel, 'Medio')
         }else if(nivelMedio == true){
             nivelDificil = true
-            levelButton(levelBtn, 'Dificil')
+            levelButton(btnLevel, 'Dificil')
         }else if(nivelDificil == true && nivelMedio == true){
             nivelMedio = false; 
             nivelDificil = false
