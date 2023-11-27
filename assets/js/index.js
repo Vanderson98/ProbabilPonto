@@ -695,7 +695,6 @@ let perguntasMatematicas = { // Array de perguntas
                      "Opção 1": "teste"
                  }, "Resposta": "Teste"
                 }        
-            }
         ]
 } // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
