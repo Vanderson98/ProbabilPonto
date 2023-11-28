@@ -890,7 +890,7 @@ let pularPergunta = (levelDefined)=>{ // Função de pular pergunta
         
         setTimeout(()=>{     
             disabledButton('active')
-            levelBox.innerHTML = ''
+            titleError.remove()
         },3000)
     }else{
         setTimeout(() => { // Em 3 segundos irá mostrar a nova pergunta destinada a outro player ou ao mesmo
