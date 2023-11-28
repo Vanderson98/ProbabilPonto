@@ -884,6 +884,8 @@ let pularPergunta = (levelDefined)=>{ // Função de pular pergunta
     disabledButton('disabled')
     perguntasPuladas+=1
     console.log(perguntasPuladas)
+
+    titleError.classList.remove('sucessTitle')
     if(perguntasPuladas > 4){
         titleError.innerHTML = "Maximo de perguntas atingidas"
         levelBox.appendChild(titleError)
