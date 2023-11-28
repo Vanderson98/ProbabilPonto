@@ -882,7 +882,7 @@ let perguntasPuladas = 0
 
 let pularPergunta = (levelDefined)=>{ // Função de pular pergunta
     disabledButton('disabled')
-    perguntasPuladas++
+    perguntasPuladas+=1
     console.log(perguntasPuladas)
     if(perguntasPuladas > 4){
         titleError.innerHTML = "Maximo de perguntas atingidas"
