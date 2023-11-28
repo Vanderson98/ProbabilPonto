@@ -878,7 +878,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
     }
 }
 
-let perguntasPuladas
+let perguntasPuladas = 0
 
 let pularPergunta = (levelDefined)=>{ // Função de pular pergunta
     disabledButton('disabled')
