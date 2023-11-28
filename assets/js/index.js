@@ -547,9 +547,7 @@ let perguntasMatematicas = { // Array de perguntas
                 'Opção 2':
                     '1/3',
                 'Opção 3':
-                    '1/2', 
-                'Opção 4':
-                    '2\4'
+                    '1/2'
                 },
             'Resposta':
                 '1/6'
