@@ -878,13 +878,26 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
     }
 }
 
+let perguntasPuladas
+
 let pularPergunta = (levelDefined)=>{ // Função de pular pergunta
     disabledButton('disabled')
-    setTimeout(() => { // Em 3 segundos irá mostrar a nova pergunta destinada a outro player ou ao mesmo
-        levelBox.innerHTML = '';
-        disabledButton('active')
-        randomPlayer(levelDefined)
-    }, 2500);
+    perguntasPuladas++
+    if(perguntasPuladas > 4){
+        titleError.innerHTML = "Maximo de perguntas atingidas"
+        levelBox.append(titleError)
+        
+        setTimeout(()=>{     
+            disabledButton('active')
+            levelBox.innerHTML = ''
+        },3000)
+    }else{
+        setTimeout(() => { // Em 3 segundos irá mostrar a nova pergunta destinada a outro player ou ao mesmo
+            levelBox.innerHTML = '';
+            disabledButton('active')
+            randomPlayer(levelDefined)
+        }, 2500);
+    }
 }
 
 let disabledButton = (action)=>{ // Função para desativar o botao ou ativar
