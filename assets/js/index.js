@@ -391,6 +391,8 @@ let setLevel = (level) =>{ // Transforma o numero em texto ( Level 1 -> facil )
             break;
     }
 
+    levelDefined = level
+
     levelBox = document.querySelector('.levelBox');
     emptyContent('levelBox')
 
@@ -437,9 +439,8 @@ let levelButton = (levelButton, levelDefined) =>{ // Chama a função de jogar p
 let responderPlayer = 0
 let currentPlayerIndex = 0
 
-let ordenedPlayers = (levelDefined)=>{
+let ordenedPlayers = ()=>{
     emptyContent('levelBox')
-    console.log(levelDefined)
     let playersArray = []
 
     if(perguntasMatematicas[`${levelDefined}`].length == 0){ // Se o tamanho do array de perguntas for igual a 0, irá chamar a função
@@ -493,9 +494,8 @@ function arrayEmbar(array) {
 
 let buttonNivel, buttonReniciar
 
-let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
+let verificarPerguntas = ()=>{ // Verificar se o array de perguntas esta vazio, se estiver é porquê todas perguntas já foram respondidas
     emptyContent('levelBox')
-    console.log(levelDefined)
             let numeroDeJogadores = Object.keys(pontosPlayers[0]).length;
             let maiorValor = -Infinity
             let jogadorPointsMax = 0
@@ -509,24 +509,15 @@ let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas 
                 }
             }
 
-            let boxPlayerPlay = document.querySelectorAll('.boxPlayerPlay');
-            boxPlayerPlay.forEach(element => {
-                element.remove();
-            });
-
             let titleSuccess = document.createElement('h3')
             titleSuccess.innerHTML = `
-            <span class="text1">
-                Parabéns, <span style="text-transform: capitalize;">${jogadorPointsMax}</span>! Você fez incríveis ${maiorValor} pontos no nosso jogo.🎉
+            <span class="text1">          
+                Parabéns, <span style="text-transform: capitalize;">${jogadorPointsMax}</span>! Você atingiu uma pontuação impressionante de ${maiorValor} pontos no nosso jogo, no nível ${levelDefined}.
             </span>
-            <span class="text2">Você está pronto para enfrentar um novo desafio com um nível mais elevado, ou prefere recomeçar um novo jogo?
+            <span class="text2">
+                Gostaria de aumentar o nível de dificuldade? Basta clicar no botão e aguardar o redirecionamento!           
             </span>
             `
-            buttonNivel = document.createElement('button')
-            buttonNivel.innerHTML = 'Desafio Avançado'
-            buttonNivel.classList.add('buttonNivel')
-            buttonNivel.setAttribute('onclick', `novoNivelJogo('${levelBtn}', '${levelDefined}')`)
-
             buttonReniciar = document.createElement('button')
             buttonReniciar.innerHTML = 'Recomeçar jogo'
             buttonReniciar.classList.add('buttonReniciar')
@@ -534,34 +525,11 @@ let verificarPerguntas = (levelDefined)=>{ // Verificar se o array de perguntas 
 
             titleSuccess.classList.add('titleSucess')
             levelBox.appendChild(titleSuccess)
-
-            levelBox.appendChild(buttonNivel)
             levelBox.appendChild(buttonReniciar)
 }
 
-let nivelMedio, nivelDificil
-
-let novoNivelJogo = (btnLevel, levelDefined)=>{
-    buttonNivel.setAttribute('disabled', true)
-    buttonReniciar.setAttribute('disabled', true)
-    console.log(levelDefined)
-    setTimeout(()=>{
-        if(nivelMedio != true){
-            nivelMedio = true;
-            // levelButton(btnLevel, 'Medio')
-        }else if(nivelMedio == true){
-            nivelDificil = true
-            // levelButton(btnLevel, 'Dificil')
-        }else if(nivelDificil == true && nivelMedio == true){
-            nivelMedio = false; 
-            nivelDificil = false
-            // window.location.reload()
-        }
-    }, 3000)
-}
 
 let reniciarJogo = ()=>{
-    buttonNivel.setAttribute('disabled', true)
     buttonReniciar.setAttribute('disabled', true)
 
     setTimeout(()=>{    
@@ -583,125 +551,130 @@ let perguntasMatematicas = { // Array de perguntas
                 },
             'Resposta':
                 '1/6'
+        },{'Pergunta': 
+            'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
+            'Opções':{
+                'Opção 1':
+                    '1/13',
+                'Opção 2':
+                    '1/26',
+                'Opção 3':
+                    '1/52',
+                'Opção 4':
+                    '4/52'},
+            'Resposta': 
+                '1/13'
+        },
+        {'Pergunta':
+            'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
+            'Opções':{
+                'Opção 1':
+                    '1/5',
+                'Opção 2':
+                    '1/3',
+                'Opção 3':
+                    '1/4',
+                'Opção 4':
+                    '1/2'},
+            'Resposta': 
+                '1/2'
+        },
+        {'Pergunta':
+            'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
+            'Opções':{
+                'Opção 1':
+                    '1/6',
+                'Opção 2':
+                    '1/3',
+                'Opção 3':
+                    '1/2',
+                'Opção 4':
+                    '2/3'},
+            'Resposta': 
+                '1/3'
+        },
+        {'Pergunta':
+            'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
+            'Opções':{
+                'Opção 1':
+                    '1/5',
+                'Opção 2':
+                    '1/4',
+                'Opção 3':
+                    '1/3',
+                'Opção 4':
+                    '1/2'},
+            'Resposta': 
+                '1/3'
+        },{'Pergunta':
+            "Em uma roleta com 18 números vermelhos, 18 números pretos e um número verde (zero), qual é a probabilidade de a bola parar em um número vermelho?",
+           'Opções':{
+               "Opção 1": "1/18",
+                "Opção 2": "1/36",
+                "Opção 3": "1/3",
+                "Opção 4": "1/2"
+           },
+           'Resposta':'1/2'
+        },{'Pergunta':
+            "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
+           'Opções':{
+               "Opção 1": "1/12",
+                "Opção 2": "1/6",
+                "Opção 3": "1/3",
+                "Opção 4": "1/2"
+           }, "Resposta": "1/6"
+        },{'Pergunta':
+            "Em uma sala, há 8 estudantes do sexo masculino e 12 estudantes do sexo feminino. Se escolhermos aleatoriamente um estudante, qual é a probabilidade de ser do sexo masculino?",
+            'Opções':{
+                "Opção 1": "2/5",
+                "Opção 2": "1/4",
+                "Opção 3": "4/5",
+                "Opção 4": "1/2"
+            }, 'Resposta': "2/5"
+        },{"Pergunta":
+            "Se escolhermos aleatoriamente um número de 1 a 20, qual é a probabilidade de ser um número primo?",
+           "Opções":{
+               "Opção 1": "1/2",
+                "Opção 2": "2/5",
+                "Opção 3": "1/3",
+                "Opção 4": "1/4"
+           }, 'Resposta': "2/5"
+        },{"Pergunta":
+            "Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
+           "Opções":{
+               "Opção 1": "1/2",
+                "Opção 2": "2/3",
+                "Opção 3": "3/4",
+                "Opção 4": "5/6"
+           }, "Resposta": "5/6"
         }
-        // ,{'Pergunta': 
-        //     'Qual a possibilidade de escolher aleatoriamente um cartão de um baralho de 52 cartas e obter um ás?',
-        //     'Opções':{
-        //         'Opção 1':
-        //             '1/13',
-        //         'Opção 2':
-        //             '1/26',
-        //         'Opção 3':
-        //             '1/52',
-        //         'Opção 4':
-        //             '4/52'},
-        //     'Resposta': 
-        //         '1/13'
-        // },
-        // {'Pergunta':
-        //     'Qual é a probabilidade de lançar uma moeda honesta e obter cara?',
-        //     'Opções':{
-        //         'Opção 1':
-        //             '1/5',
-        //         'Opção 2':
-        //             '1/3',
-        //         'Opção 3':
-        //             '1/4',
-        //         'Opção 4':
-        //             '1/2'},
-        //     'Resposta': 
-        //         '1/2'
-        // },
-        // {'Pergunta':
-        //     'Qual é a probabilidade de lançar um dado justo e obter um numero maior que 4?',
-        //     'Opções':{
-        //         'Opção 1':
-        //             '1/6',
-        //         'Opção 2':
-        //             '1/3',
-        //         'Opção 3':
-        //             '1/2',
-        //         'Opção 4':
-        //             '2/3'},
-        //     'Resposta': 
-        //         '1/3'
-        // },
-        // {'Pergunta':
-        //     'Qual é a probabilidade de escolher aleatoriamente um número de 1 a 10 e que ele seja ímpar?',
-        //     'Opções':{
-        //         'Opção 1':
-        //             '1/5',
-        //         'Opção 2':
-        //             '1/4',
-        //         'Opção 3':
-        //             '1/3',
-        //         'Opção 4':
-        //             '1/2'},
-        //     'Resposta': 
-        //         '1/3'
-        // },{'Pergunta':
-        //     "Em uma roleta com 18 números vermelhos, 18 números pretos e um número verde (zero), qual é a probabilidade de a bola parar em um número vermelho?",
-        //    'Opções':{
-        //        "Opção 1": "1/18",
-        //         "Opção 2": "1/36",
-        //         "Opção 3": "1/3",
-        //         "Opção 4": "1/2"
-        //    },
-        //    'Resposta':'1/2'
-        // },{'Pergunta':
-        //     "Se lançarmos um dado justo de seis lados duas vezes, qual é a probabilidade de obtermos um 6 em pelo menos uma das vezes?",
-        //    'Opções':{
-        //        "Opção 1": "1/12",
-        //         "Opção 2": "1/6",
-        //         "Opção 3": "1/3",
-        //         "Opção 4": "1/2"
-        //    }, "Resposta": "1/6"
-        // },{'Pergunta':
-        //     "Em uma sala, há 8 estudantes do sexo masculino e 12 estudantes do sexo feminino. Se escolhermos aleatoriamente um estudante, qual é a probabilidade de ser do sexo masculino?",
-        //     'Opções':{
-        //         "Opção 1": "2/5",
-        //         "Opção 2": "1/4",
-        //         "Opção 3": "4/5",
-        //         "Opção 4": "1/2"
-        //     }, 'Resposta': "2/5"
-        // },{"Pergunta":
-        //     "Se escolhermos aleatoriamente um número de 1 a 20, qual é a probabilidade de ser um número primo?",
-        //    "Opções":{
-        //        "Opção 1": "1/2",
-        //         "Opção 2": "2/5",
-        //         "Opção 3": "1/3",
-        //         "Opção 4": "1/4"
-        //    }, 'Resposta': "2/5"
-        // },{"Pergunta":
-        //     "Em um dado justo de seis lados, qual é a probabilidade de obtermos um número par ou um número maior que 3 em um único lançamento?",
-        //    "Opções":{
-        //        "Opção 1": "1/2",
-        //         "Opção 2": "2/3",
-        //         "Opção 3": "3/4",
-        //         "Opção 4": "5/6"
-        //    }, "Resposta": "5/6"
-        // }
     ], 
-        'Medio':[
+    'Medio':[
             {'Pergunta':
-                    'Teste medio', 
-             "Opções":{
-                 "Opção 1": "teste"
-             }, "Resposta": "Teste"
+                'Teste medio', 
+                "Opções":{
+                    "Opção 1": "Teste"
+                }, 
+                "Resposta": "Teste"
+            },{'Pergunta':
+                'Teste medio 2', 
+                "Opções":{
+                    "Opção 1": "Teste 2"
+                }, 
+                "Resposta": "Teste 2"
             }
     ], 
-        'Dificil': [
+    'Dificil':[
                 {'Pergunta':
                         'Teste dificil', 
                  "Opções":{
-                     "Opção 1": "teste"
+                     "Opção 1": "Teste"
                  }, "Resposta": "Teste"
                 }        
-        ]
+    ]
 } // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
-let buttonConfirmar, buttonPular
-let opcaoResposta
+let buttonConfirmar, buttonPular, opcaoResposta
 
 let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador irá responder, e qual é a pergunta
     let perguntasArray = []
@@ -846,6 +819,8 @@ let opcaoDefined = (opcao, levelDefined, randomPergunta, modoDeJogo) => { // Fun
     });
 };
 
+let pointsToPlayer 
+
 let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta)=>{ // Corrigir resposta
     disabledButton('disabled')
 
@@ -857,7 +832,7 @@ let corrigirResposta = (idPergunta, idPlayer, levelDefined, modoDeJogo, resposta
         }
         if (respostaConfirmada) { // Se for, irá adicionar ponto
             pontosPlayers[0][`Jogador ${idPlayer}`] += 250            
-            let pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
+            pointsToPlayer = document.querySelector(`.player${idPlayer}Point`);
                 pointsToPlayer.innerHTML = pontosPlayers[0][`Jogador ${idPlayer}`];
             perguntasMatematicas[`${levelDefined}`].splice(idPergunta, 1)
 

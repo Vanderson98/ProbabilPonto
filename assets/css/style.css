@@ -7,6 +7,10 @@
 
 body{
     overflow: hidden !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/background.jpg');
 }
 
 button, button:focus{
@@ -20,7 +24,7 @@ button:disabled{
 }
 
 body, .container{
-    background-color: #13293d;
+    background-color: #25252590;
 }
 
 .container{
@@ -483,13 +487,14 @@ body, .container{
 .text1{
     margin-bottom: .5rem;
     font-size: 1.4rem;
+    width: 110%;
 }
 
 .text2{
     font-size: 1rem;
 }
 
-.buttonReniciar, .buttonNivel{
+.buttonReniciar{
     margin-top: 1rem;
     border-radius: .3rem;
     padding: .5rem;
@@ -502,17 +507,12 @@ body, .container{
     transition: 250ms;
 }
 
-.buttonNivel{
-    background-color: #f0a000;
-    color: #e8f1f2;
-}
-
 .buttonReniciar{
     color: #e8f1f2;
     background-color: #FF0050;
 }
 
-.buttonReniciar:hover, .buttonNivel:hover{
+.buttonReniciar:hover{
     opacity: 75%;
 }
 
