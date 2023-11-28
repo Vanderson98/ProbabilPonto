@@ -731,7 +731,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         
         let opcoesBox = document.createElement('div')
         opcoesBox.setAttribute('class', 'opcoesBox')
-        for(let i = 0; i <= Object.keys(perguntasMatematicas[levelDefined][0]['Opções']).length; i++){
+        for(let i = 1; i <= Object.keys(perguntasMatematicas[levelDefined][0]['Opções']).length; i++){
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
