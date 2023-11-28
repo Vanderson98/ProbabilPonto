@@ -733,14 +733,14 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir�
         
         let opcoesBox = document.createElement('div')
         opcoesBox.setAttribute('class', 'opcoesBox')
-        for(let i = 1; i <= Object.keys(perguntasMatematicas[levelDefined][0]['Opções']).length; i++){
+        for(let i = 1; i <= Object.keys(perguntasMatematicas[levelDefined][indicePergunta]['Opções']).length; i++){
             let opcao = document.createElement('h3');
             opcao.classList.add('opcao'+i)
             opcao.classList.add('opcao')
             let numberRandom = 0
 
             do{ // Gerar um numero aleatorio para colocar as perguntas de forma aleatoria no layout do site
-                numberRandom = Math.floor(Math.random() * Object.keys(perguntasMatematicas[levelDefined][0]['Opções']).length) + 1
+                numberRandom = Math.floor(Math.random() * Object.keys(perguntasMatematicas[levelDefined][indicePergunta]['Opções']).length) + 1
             }while(numbersGenerated.includes(numberRandom))
             numbersGenerated.push(numberRandom)
 
