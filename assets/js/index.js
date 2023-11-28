@@ -248,6 +248,7 @@ let setAvatar = ()=>{ // Parte de jogadores
         namePlayer = namePlayer.toLowerCase();
         if (namePlayer == null || namePlayer == undefined || namePlayer == '') {
             userNoDetected = true;
+            titleError.classList.remove('sucessTitle')
             titleError.innerHTML = 'Digite os nomes corretamente e <br>tente novamente!'; // Mensagem de erro 1
             boxNamesPlayers.appendChild(titleError);
             namePlayers.splice(0, namePlayers.length); // Apagar array
