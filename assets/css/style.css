@@ -587,6 +587,7 @@ body, .container{
     .perguntaText{
         text-align: justify !important;
         margin: 0 .1rem;
+        font-size: 1rem !important;
     }
 
     .avisoText{

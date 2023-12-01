@@ -734,7 +734,7 @@ let perguntasMatematicas = { // Array de perguntas
         'Dois dados cúbicos, não viciados, com faces numeradas de 1 a 6, serão lançados simultaneamente. A probabilidade de que sejam sorteados dois números consecutivos, cuja soma seja um número primo, é de:', 
         'Opções':{
             "Opção 1": "2/9", 
-            "Opção  2": "1/3", 
+            "Opção 2": "1/3", 
             "Opção 3": "4/9", 
             "Opção 4": "2/3"}, 
         "Resposta": 
@@ -743,7 +743,7 @@ let perguntasMatematicas = { // Array de perguntas
         'Considere uma prova de Matemática constituída de quatro questões de múltipla escolha, com quatro alternativas cada uma, das quais apenas uma é correta. Um candidato decide fazer essa prova escolhendo, aleatoriamente, uma alternativa em cada questão. Então, é CORRETO afirmar que a probabilidade de esse candidato acertar, nessa prova, exatamente uma questão é:', 
         'Opções':{
             "Opção 1": "27/64", 
-            "Opção  2": "27/256", 
+            "Opção 2": "27/256", 
             "Opção 3": "9/64", 
             "Opção 4": "9/256"}, 
         "Resposta": 
