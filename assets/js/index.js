@@ -653,19 +653,102 @@ let perguntasMatematicas = { // Array de perguntas
         }
     ], 
     'Medio':[
-            {'Pergunta':
-                'Teste medio', 
-                "Opções":{
-                    "Opção 1": "Teste"
-                }, 
-                "Resposta": "Teste"
-            },{'Pergunta':
-                'Teste medio 2', 
-                "Opções":{
-                    "Opção 1": "Teste 2"
-                }, 
-                "Resposta": "Teste 2"
-            }
+        {'Pergunta': 
+    'No lançamento de dois dados, qual é o número total de possibilidades de resultados e qual é a probabilidade de obtermos soma igual a 8?', 
+    
+    'Opções':{ 
+        "Opção 1": "36 e 5%", 
+        "Opção 2": "36 e 14%", 
+        "Opção 3": "6 e 5%", 
+        "Opção 4": "5 e 6%"},
+
+    "Resposta": 
+        "36 e 14%"
+    }, {'Pergunta': 
+        'Qual é a probabilidade de, no lançamento de 4 moedas, obtermos cara em todos os resultados?', 
+        'Opções':{ 
+            "Opção 1": "2%", 
+            "Opção 2": "2,2%", 
+            "Opção 3": "6,2%", 
+            "Opção 4": "4%"}, 
+        "Resposta": 
+            "6,2%"
+    }, {'Pergunta': 
+        'Qual é o número total de possibilidades de resultado no lançamento de 5 moedas?', 
+        
+        'Opções':{ 
+            "Opção 1": "2", 
+            "Opção 2": "5", 
+            "Opção 3": "10", 
+            "Opção 4": "32"}, 
+        "Resposta": 
+            "32"
+    }, {'Pergunta': 
+        'Um aluno prestou vestibular em apenas duas Universidades. Suponha que, em uma delas, a probabilidade de que ele seja aprovado é de 30%, enquanto na outra, pelo fato de a prova ter sido mais fácil, a probabilidade de sua aprovação sobe para 40%. Nessas condições, a probabilidade deque esse aluno seja aprovado em pelo menosuma dessas Universidades é de:', 
+        
+        'Opções':{ 
+            "Opção 1": "70%", 
+            "Opção 2": "68%", 
+            "Opção 3": "60%", 
+            "Opção 4": "58%"},
+        "Resposta": 
+            "58%"
+    }, {'Pergunta': 
+        'Quatro moedas são lançadas simultaneamente. Qual é a probabilidade de ocorrer coroa em uma só moeda?', 
+        
+        'Opções':{
+            "Opção 1": "1/8", 
+            "Opção 2": "2/9", 
+            "Opção 3": "1/4", 
+            "Opção 4": "1/3"}, 
+        "Resposta": 
+            "1/4"
+    }, {'Pergunta': 
+        'Jogamos dois dados comuns. Qual a probabilidade de que o total de pontos seja igual a 10?', 
+        'Opções':{ 
+            "Opção 1": "1/12", 
+            "Opção 2": "1/11", 
+            "Opção 3": "1/10", 
+            "Opção 4": "2/23"},
+        "Resposta": 
+            "1/12"
+    }, {'Pergunta': 
+        'A probabilidade de um casal com quatro filhos ter dois do sexo masculino e dois do sexo feminino é:', 
+        'Opções':{ 
+            "Opção 1": "60%", 
+            "Opção 2": "50%", 
+            "Opção 3": "45%", 
+            "Opção 4": "25%"}, 
+        "Resposta": 
+            "25%"
+    }, {'Pergunta': 
+        'A probabilidade de um dos cem números 1, 2, 3, 4, ..., 100 ser múltiplo de 6 e de 10 ao mesmo tempo é:', 
+        'Opções':{ 
+            "Opção 1": "3%", 
+            "Opção 2": "6%", 
+            "Opção 3": "2%", 
+            "Opção 4": "60%"}, 
+        "Resposta": 
+            "60%"
+    }, {'Pergunta': 
+        'Dois dados cúbicos, não viciados, com faces numeradas de 1 a 6, serão lançados simultaneamente. A probabilidade de que sejam sorteados dois números consecutivos, cuja soma seja um número primo, é de:', 
+        'Opções':{
+            "Opção 1": "2/9", 
+            "Opção  2": "1/3", 
+            "Opção 3": "4/9", 
+            "Opção 4": "2/3"}, 
+        "Resposta": 
+            "2/3"
+    }, {'Pergunta':
+        'Considere uma prova de Matemática constituída de quatro questões de múltipla escolha, com quatro alternativas cada uma, das quais apenas uma é correta. Um candidato decide fazer essa prova escolhendo, aleatoriamente, uma alternativa em cada questão. Então, é CORRETO afirmar que a probabilidade de esse candidato acertar, nessa prova, exatamente uma questão é:', 
+        'Opções':{
+            "Opção 1": "27/64", 
+            "Opção  2": "27/256", 
+            "Opção 3": "9/64", 
+            "Opção 4": "9/256"}, 
+        "Resposta": 
+            "27/64"
+    }
     ], 
     'Dificil':[
                 {'Pergunta':
