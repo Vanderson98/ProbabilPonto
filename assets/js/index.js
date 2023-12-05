@@ -751,12 +751,97 @@ let perguntasMatematicas = { // Array de perguntas
     }
     ], 
     'Dificil':[
-                {'Pergunta':
-                        'Teste dificil', 
-                 "Opções":{
-                     "Opção 1": "Teste"
-                 }, "Resposta": "Teste"
-                }        
+        {'Pergunta':
+        'Qual é a probabilidade de obter exatamente três cartas de copas ao escolher aleatoriamente cinco cartas sem reposição de um baralho padrão de 52 cartas?', 
+        'Opções':{
+            "Opção 1": "0,047", 
+            "Opção 2": "0,125", 
+            "Opção 3": "0,155", 
+            "Opção 4": "0,237"}, 
+        "Resposta": 
+            "0,125"
+        },{'Pergunta':
+                'Se lançarmos dois dados justos, qual é a probabilidade de obter uma soma maior que 9?', 
+                'Opções':{
+                    "Opção 1": "1/6", 
+                    "Opção 2": "1/12", 
+                    "Opção 3": "1/9", 
+                    "Opção 4": "1/18"}, 
+                "Resposta": 
+                    "1/12"
+        },{'Pergunta':
+            'Em uma sala com 30 pessoas, qual é a probabilidade de pelo menos duas delas compartilharem a mesma data de aniversário?', 
+            'Opções':{
+                "Opção 1": "0,294", 
+                "Opção 2": "0,507", 
+                "Opção 3": "0,706", 
+                "Opção 4": "0,891"}, 
+            "Resposta": 
+                "0,706"
+        },{'Pergunta':
+            'Se lançarmos uma moeda viciada cinco vezes (70% de chance de cara, 30% de chance de coroa), qual é a probabilidade de obter exatamente três coroas?', 
+            'Opções':{
+                "Opção 1": "0,3087", 
+                "Opção 2": "0,3601", 
+                "Opção 3": "0,4107", 
+                "Opção 4": "0,4830"}, 
+            "Resposta": 
+                "0,3087"
+        },{'Pergunta':
+            'Em um conjunto de 20 cartas numeradas de 1 a 20, escolhemos três cartas aleatórias. Qual é a probabilidade de que a soma dos números das cartas escolhidas seja um número primo?', 
+            'Opções':{
+                "Opção 1": "0,225", 
+                "Opção 2": "0,3125", 
+                "Opção 3": "0,3875", 
+                "Opção 4": "0,4625"}, 
+            "Resposta": 
+                "0,225"
+        },{'Pergunta':
+            'Se retirarmos duas bolas de uma urna que contém 10 bolas numeradas de 1 a 10, com reposição, qual é a probabilidade de que ambas as bolas tenham números ímpares?', 
+            'Opções':{
+                "Opção 1": "0,25", 
+                "Opção 2": "0,30", 
+                "Opção 3": "0,36", 
+                "Opção 4": "0,40"}, 
+            "Resposta": 
+                "0,36"
+        },{'Pergunta':
+            'Se tivermos uma urna com 5 bolas vermelhas, 3 bolas azuis e 2 bolas verdes, e retirarmos duas bolas sem reposição, qual é a probabilidade de ambas as bolas serem da mesma cor?', 
+            'Opções':{
+                "Opção 1": "0,118", 
+                "Opção 2": "0,133", 
+                "Opção 3": "0,148", 
+                "Opção 4": "0,162"}, 
+            "Resposta": 
+                "0,133"
+        },{'Pergunta':
+            'Suponha que escolhemos aleatoriamente uma data do ano. Qual é a probabilidade de que a data escolhida seja um sábado?', 
+            'Opções':{
+                "Opção 1": "1/7", 
+                "Opção 2": "1/14", 
+                "Opção 3": "1/365", 
+                "Opção 4": "1/52"}, 
+            "Resposta": 
+                "1/7"
+        },{'Pergunta':
+            'Se lançarmos três dados, qual é a probabilidade de obter três números ímpares?', 
+            'Opções':{
+                "Opção 1": "1/36", 
+                "Opção 2": "1/18", 
+                "Opção 3": "1/27", 
+                "Opção 4": "1/12"}, 
+            "Resposta": 
+                "1/27"
+        },{'Pergunta':
+            'Se tivermos uma urna com 8 bolas numeradas de 1 a 8, e retirarmos duas bolas com reposição, qual é a probabilidade de que a soma dos números das bolas seja um número par?', 
+            'Opções':{
+                "Opção 1": "0,25", 
+                "Opção 2": "0,3125", 
+                "Opção 3": "0,375", 
+                "Opção 4": "0,4375"}, 
+            "Resposta": 
+                "0,3125"
+        }     
     ]
 } // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
