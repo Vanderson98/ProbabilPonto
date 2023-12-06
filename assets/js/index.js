@@ -902,7 +902,7 @@ let questionToPlayer = (levelDefined, modoDeJogo)=>{ // Mostrar qual jogador ir√
     let playerResposta = document.createElement('h3');
     playerResposta.innerHTML = `
     O jogador 
-        <span id="playerId">${responderPlayer}</span> 
+        <span id="playerId">${namePlayers[responderPlayer]}</span> 
     ir√° responder a pergunta`
 
     levelBox.appendChild(playerResposta)
