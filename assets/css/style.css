@@ -116,7 +116,7 @@ body, .container{
     margin-top: 1rem;
 }
 
-.playerId{
+#playerId{
     text-transform:capitalize;
 }
 
