@@ -650,6 +650,22 @@ let perguntasMatematicas = { // Array de perguntas
                 "Opção 3": "3/4",
                 "Opção 4": "5/6"
            }, "Resposta": "5/6"
+        },{'Pergunta':
+            'Qual é a unidade de medida mais usada de frequência de uma onda?', 
+            'Opções':{
+                "Opção 1": "M/s", 
+                "Opção 2": "Bpm", 
+                "Opção 3": "Heartz", 
+                "Opção 4": "KM/H"}, 
+            "Resposta": 
+                "Heartz"
+        },{'Pergunta':
+            'Existe som no espaço?', 
+            'Opções':{
+                "Opção 1": "Sim, pois as moléculas são auto suficientes para vibrarem no vácuo", 
+                "Opção 2": "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para se propagar"}, 
+            "Resposta": 
+                "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para se propagar"
         }
     ], 
     'Medio':[
@@ -748,6 +764,22 @@ let perguntasMatematicas = { // Array de perguntas
             "Opção 4": "9/256"}, 
         "Resposta": 
             "27/64"
+    },{'Pergunta':
+        'É correto afirmar que a pertubação na onda é diretamente ligada ao timbre?', 
+        'Opções':{
+            "Opção 1": "Sim", 
+            "Opção 2": "Não"}, 
+        "Resposta": 
+            "Não"
+    },{'Pergunta':
+        'Como é calculado o comprimento de uma onda?', 
+        'Opções':{
+            "Opção 1": "Frequência vezes velocidade", 
+            "Opção 2": "Amplitude divida pela Frequência", 
+            "Opção 3": "Velocidade divida pela Frequência", 
+            "Opção 4": "Nenhuma das alternativas, pois para medir a onda só precisamos saber a sua frequência"}, 
+        "Resposta": 
+            "Velocidade divida pela Frequência"
     }
     ], 
     'Dificil':[
@@ -841,7 +873,25 @@ let perguntasMatematicas = { // Array de perguntas
                 "Opção 4": "0,4375"}, 
             "Resposta": 
                 "0,3125"
-        }     
+        },{'Pergunta':
+            'Qual é o nome dado ao ponto mais baixo de uma onda?', 
+            'Opções':{
+                "Opção 1": "Crista", 
+                "Opção 2": "Vale", 
+                "Opção 3": "Baixo", 
+                "Opção 4": "Nenhuma das alternativas"}, 
+            "Resposta": 
+                "Vale"
+        },{'Pergunta':
+            'Qual é o ponto mais alto de uma onda?', 
+            'Opções':{
+                "Opção 1": "Crista", 
+                "Opção 2": "Vale", 
+                "Opção 3": "Amplitude", 
+                "Opção 4": "Timbre"}, 
+            "Resposta": 
+                "Crista"
+        }   
     ]
 } // [IMPORTANTE] -> Adicionar mais perguntas de acordo com o nivel
 
