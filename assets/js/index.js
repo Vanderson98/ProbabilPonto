@@ -663,9 +663,9 @@ let perguntasMatematicas = { // Array de perguntas
             'Existe som no espaço?', 
             'Opções':{
                 "Opção 1": "Sim, pois as moléculas são auto suficientes para vibrarem no vácuo", 
-                "Opção 2": "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para se propagar"}, 
+                "Opção 2": "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para isso"}, 
             "Resposta": 
-                "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para se propagar"
+                "Não, já que para uma onda se propagar, precisar de um material sólido, líquido ou gasoso para isso"
         }
     ], 
     'Medio':[
