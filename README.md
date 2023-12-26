@@ -38,7 +38,7 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE) - veja o arquivo LIC
 
 ## Contato
 
-Para sugestões, dúvidas ou feedback, entre em contato via [email@example.com](vansouza595@gmail.com).
+Para sugestões, dúvidas ou feedback, entre em contato via [VandersonSouza](vansouza595@gmail.com).
 
 ---
 
